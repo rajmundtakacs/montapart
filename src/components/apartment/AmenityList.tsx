@@ -1,18 +1,31 @@
+import {
+  Car,
+  Snowflake,
+  Tv,
+  Wifi,
+  Coffee,
+  Microwave,
+  WashingMachine,
+  UtensilsCrossed,
+  Check,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
 interface AmenityListProps {
   amenities: string[];
 }
 
-const amenityIcons: Record<string, string> = {
-  'Parkoló': '🅿️',
-  'Klíma': '❄️',
-  'Légkondi': '❄️',
-  'TV': '📺',
-  'Internet': '📶',
-  'Vízforraló': '☕',
-  'Mikro': '🔲',
-  'Mikrohullámú sütő': '🔲',
-  'Mosógép': '🫧',
-  'Mosogatógép': '🍽️',
+const amenityIcons: Record<string, LucideIcon> = {
+  'Parkoló': Car,
+  'Klíma': Snowflake,
+  'Légkondi': Snowflake,
+  'TV': Tv,
+  'Internet': Wifi,
+  'Vízforraló': Coffee,
+  'Mikro': Microwave,
+  'Mikrohullámú sütő': Microwave,
+  'Mosógép': WashingMachine,
+  'Mosogatógép': UtensilsCrossed,
 };
 
 export default function AmenityList({ amenities }: AmenityListProps) {
@@ -22,15 +35,18 @@ export default function AmenityList({ amenities }: AmenityListProps) {
         Felszereltség
       </h4>
       <div className="flex flex-wrap gap-2">
-        {amenities.map((amenity) => (
-          <span
-            key={amenity}
-            className="inline-flex items-center gap-1.5 bg-sea-50 text-sea-800 px-3 py-1.5 rounded-full text-sm"
-          >
-            <span>{amenityIcons[amenity] || '✓'}</span>
-            {amenity}
-          </span>
-        ))}
+        {amenities.map((amenity) => {
+          const Icon = amenityIcons[amenity] || Check;
+          return (
+            <span
+              key={amenity}
+              className="inline-flex items-center gap-1.5 bg-sea-50 text-sea-800 px-3 py-1.5 rounded-full text-sm"
+            >
+              <Icon className="w-3.5 h-3.5" strokeWidth={1.5} />
+              {amenity}
+            </span>
+          );
+        })}
       </div>
     </div>
   );

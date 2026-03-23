@@ -23,20 +23,20 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-8 flex flex-wrap gap-4"
+          className="mt-16 flex flex-wrap gap-4"
         >
           <Link
             to="/apartments"
-            className="inline-flex items-center gap-2 bg-white text-midnight px-7 py-3.5 rounded-full font-medium text-sm tracking-wide hover:bg-sea-50 transition-colors shadow-lg"
+            className="inline-flex items-center gap-3 bg-white text-midnight px-9 py-4 rounded-full font-semibold text-base tracking-wide hover:bg-sea-50 transition-colors shadow-lg"
           >
             Apartmanok megtekintése
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-white/15 text-white px-7 py-3.5 rounded-full font-medium text-sm tracking-wide hover:bg-white/25 transition-colors backdrop-blur-sm border border-white/20"
+            className="inline-flex items-center gap-3 bg-white/15 text-white px-9 py-4 rounded-full font-semibold text-base tracking-wide hover:bg-white/25 transition-colors backdrop-blur-sm border border-white/20"
           >
             Kapcsolat
           </Link>
@@ -44,7 +44,7 @@ export default function Home() {
       </HeroSection>
 
       {/* Category Cards */}
-      <section className="max-w-7xl mx-auto px-6 -mt-16 relative z-20 pb-20">
+      <section className="max-w-7xl mx-auto px-6 py-20 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
             <motion.div
@@ -58,7 +58,7 @@ export default function Home() {
                 to={cat.to}
                 className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-64 md:h-72 overflow-hidden">
                   <img
                     src={cat.image}
                     alt={cat.label}
