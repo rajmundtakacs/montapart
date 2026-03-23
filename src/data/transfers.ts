@@ -1,37 +1,18 @@
 export interface TransferRoute {
   destination: string;
-  capacity: string;
-  price: number;
+  taxiPrice: number;
+  minibusPrice: number;
 }
 
-export interface TransferCategory {
-  name: string;
-  routes: TransferRoute[];
-}
+export const taxiCapacity = '4 fő';
+export const minibusCapacity = '8 fő';
 
-export const transfers: TransferCategory[] = [
-  {
-    name: 'Taxi',
-    routes: [
-      { destination: 'Sutomore', capacity: '4 fő', price: 55 },
-      { destination: 'Canj', capacity: '4 fő', price: 55 },
-      { destination: 'Petrovac', capacity: '4 fő', price: 55 },
-      { destination: 'Bar', capacity: '4 fő', price: 55 },
-      { destination: 'Sveti Stefan', capacity: '4 fő', price: 55 },
-      { destination: 'Herceg Novi', capacity: '4 fő', price: 85 },
-      { destination: 'Budva', capacity: '4 fő', price: 60 },
-    ],
-  },
-  {
-    name: 'Kisbusz',
-    routes: [
-      { destination: 'Sutomore', capacity: '8 fő', price: 110 },
-      { destination: 'Canj', capacity: '8 fő', price: 110 },
-      { destination: 'Petrovac', capacity: '8 fő', price: 110 },
-      { destination: 'Bar', capacity: '8 fő', price: 110 },
-      { destination: 'Sveti Stefan', capacity: '8 fő', price: 110 },
-      { destination: 'Herceg Novi', capacity: '8 fő', price: 180 },
-      { destination: 'Budva', capacity: '8 fő', price: 120 },
-    ],
-  },
+export const transferRoutes: TransferRoute[] = [
+  { destination: 'Sutomore', taxiPrice: 55, minibusPrice: 110 },
+  { destination: 'Canj', taxiPrice: 55, minibusPrice: 110 },
+  { destination: 'Petrovac', taxiPrice: 55, minibusPrice: 110 },
+  { destination: 'Bar', taxiPrice: 55, minibusPrice: 110 },
+  { destination: 'Sveti Stefan', taxiPrice: 55, minibusPrice: 110 },
+  { destination: 'Herceg Novi', taxiPrice: 85, minibusPrice: 180 },
+  { destination: 'Budva', taxiPrice: 60, minibusPrice: 120 },
 ];

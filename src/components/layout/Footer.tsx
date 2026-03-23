@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4">
               Oldalak
             </h4>
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4">
               Kapcsolat
             </h4>
@@ -62,22 +62,22 @@ export default function Footer() {
               >
                 {contactInfo.phone}
               </a>
-              <div className="flex gap-4 pt-2">
+              <div className="flex gap-4 pt-2 justify-center md:justify-start">
                 <a
                   href={contactInfo.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="opacity-60 hover:opacity-100 transition-opacity"
+                  className="hover:opacity-80 transition-opacity"
                 >
-                  <img src="/images/facebook.png" alt="Facebook" className="h-6 w-6 invert" />
+                  <img src="/images/facebook.png" alt="Facebook" className="h-7 w-7" />
                 </a>
                 <a
                   href={contactInfo.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="opacity-60 hover:opacity-100 transition-opacity"
+                  className="hover:opacity-80 transition-opacity"
                 >
-                  <img src="/images/instagram.png" alt="Instagram" className="h-6 w-6 invert" />
+                  <img src="/images/instagram.png" alt="Instagram" className="h-7 w-7" />
                 </a>
               </div>
             </div>
