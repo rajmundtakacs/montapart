@@ -414,41 +414,6 @@ export const apartments: Apartment[] = [
       },
     ],
   },
-  {
-    slug: 'teszt',
-    name: 'Teszt apartman',
-    description:
-      'Ez egy teszt apartman az összes adat megjelenítésének ellenőrzéséhez. Minden mező ki van töltve, minden felszereltség szerepel.',
-    thumbnail: '/images/apartmanok/lugas/thumbnail.JPG',
-    units: [
-      {
-        id: 1,
-        label: 'Apartman 1',
-        capacity: 6,
-        bedrooms: 3,
-        hasKitchen: true,
-        hasTerrace: true,
-        hasLivingRoom: true,
-        bathrooms: 2,
-        seaDistance: '50 m',
-        amenities: ['Internet', 'Klíma', 'TV', 'Mosógép', 'Mosogatógép', 'Mikró', 'Vízforraló', 'Parkoló'],
-        images: generateImages('/images/apartmanok/lugas/ap1', 'lugas', 5),
-      },
-      {
-        id: 2,
-        label: 'Apartman 2',
-        capacity: 3,
-        bedrooms: 1,
-        hasKitchen: false,
-        hasTerrace: false,
-        hasLivingRoom: false,
-        bathrooms: 1,
-        seaDistance: '50 m',
-        amenities: ['Internet', 'Klíma', 'TV'],
-        images: generateImages('/images/apartmanok/kek/images/ap2', 'kek', 5, 'JPG'),
-      },
-    ],
-  },
 ];
 
 export function getApartmentBySlug(slug: string): Apartment | undefined {

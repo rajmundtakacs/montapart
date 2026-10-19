@@ -9,6 +9,7 @@ import Attractions from './pages/Attractions';
 import Transfer from './pages/Transfer';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

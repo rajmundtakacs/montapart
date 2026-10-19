@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getApartmentBySlug } from '../data/apartments';
+import { contactInfo } from '../data/contact';
+import NotFound from './NotFound';
 import ImageGallery from '../components/apartment/ImageGallery';
 import UnitSwitcher from '../components/apartment/UnitSwitcher';
 import FeatureGrid from '../components/apartment/FeatureGrid';
@@ -14,16 +16,16 @@ export default function ApartmentDetail() {
 
   if (!apartment) {
     return (
-      <div className="pt-32 pb-20 text-center">
-        <h1 className="font-display text-3xl text-midnight">Apartman nem található</h1>
-        <Link to="/apartments" className="mt-4 inline-block text-sea-600 hover:underline">
-          Vissza az apartmanokhoz
-        </Link>
-      </div>
+      <NotFound
+        title="Ez az apartman nem található"
+        description="Ez a szállás jelenleg nem szerepel a kínálatunkban. Válasszon a többi apartmanunk közül, vagy keressen bennünket a kapcsolatoldalon!"
+      />
     );
   }
 
   const activeUnit = apartment.units.find((u) => u.id === activeUnitId) || apartment.units[0];
+  const inquirySubject = `Érdeklődés: ${apartment.name} – ${activeUnit.label}`;
+  const inquiryHref = `mailto:${contactInfo.email}?subject=${encodeURIComponent(inquirySubject)}`;
 
   return (
     <div className="pt-24 pb-20">
@@ -92,7 +94,7 @@ export default function ApartmentDetail() {
               </p>
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
                 <a
-                  href="mailto:montapartman@gmail.com"
+                  href={inquiryHref}
                   className="flex-1 text-center bg-sea-600 text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-sea-700 transition-colors"
                 >
                   E-mail küldése
