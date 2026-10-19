@@ -11,7 +11,7 @@ const channels = [
 export default function Contact() {
   return (
     <div className="pt-28 pb-20">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,11 +32,11 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white rounded-2xl p-8 shadow-sm border border-sand-100 flex flex-col sm:flex-row justify-center gap-6"
+            className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-100 grid grid-cols-1 md:grid-cols-2 gap-3"
           >
             <a
               href={`mailto:${contactInfo.email}`}
-              className="flex flex-col items-center gap-3 p-6 rounded-xl hover:bg-sea-50 transition-colors group flex-1"
+              className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 text-center rounded-xl hover:bg-sea-50 transition-colors group flex-1"
             >
               <div className="w-14 h-14 bg-sea-100 rounded-full flex items-center justify-center text-sea-600 flex-shrink-0">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -44,14 +44,14 @@ export default function Contact() {
                 </svg>
               </div>
               <p className="text-xs text-midnight/40 uppercase tracking-wider font-medium">E-mail</p>
-              <p className="text-midnight font-semibold text-lg group-hover:text-sea-700 transition-colors">
+              <p className="text-midnight font-semibold text-sm sm:text-base break-words max-w-full group-hover:text-sea-700 transition-colors">
                 {contactInfo.email}
               </p>
             </a>
 
             <a
               href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
-              className="flex flex-col items-center gap-3 p-6 rounded-xl hover:bg-sea-50 transition-colors group flex-1"
+              className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 text-center rounded-xl hover:bg-sea-50 transition-colors group flex-1"
             >
               <div className="w-14 h-14 bg-sea-100 rounded-full flex items-center justify-center text-sea-600 flex-shrink-0">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -59,7 +59,7 @@ export default function Contact() {
                 </svg>
               </div>
               <p className="text-xs text-midnight/40 uppercase tracking-wider font-medium">Telefon</p>
-              <p className="text-midnight font-semibold text-lg group-hover:text-sea-700 transition-colors">
+              <p className="text-midnight font-semibold text-sm sm:text-base break-words max-w-full group-hover:text-sea-700 transition-colors">
                 {contactInfo.phone}
               </p>
             </a>
@@ -70,16 +70,16 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white rounded-2xl p-8 shadow-sm border border-sand-100"
+            className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-100"
           >
             <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/40 mb-6 text-center">
               Üzenetküldés
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {channels.map((ch) => (
                 <button
                   key={ch.name}
-                  className="flex flex-col items-center gap-3 p-5 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200"
+                  className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200"
                 >
                   <img src={ch.icon} alt={ch.name} className="w-10 h-10 object-contain" />
                   <span className="text-sm font-medium text-midnight/70">{ch.name}</span>
@@ -93,7 +93,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white rounded-2xl p-8 shadow-sm border border-sand-100"
+            className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-100"
           >
             <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/40 mb-6 text-center">
               Közösségi média
@@ -103,7 +103,7 @@ export default function Contact() {
                 href={contactInfo.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-3 p-5 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200 flex-1 max-w-[200px]"
+                className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200 flex-1 max-w-[200px]"
               >
                 <img src="/images/facebook.png" alt="Facebook" className="w-10 h-10 object-contain" />
                 <span className="text-sm font-medium text-midnight/70">Facebook</span>
@@ -112,7 +112,7 @@ export default function Contact() {
                 href={contactInfo.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-3 p-5 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200 flex-1 max-w-[200px]"
+                className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200 flex-1 max-w-[200px]"
               >
                 <img src="/images/instagram.png" alt="Instagram" className="w-10 h-10 object-contain" />
                 <span className="text-sm font-medium text-midnight/70">Instagram</span>

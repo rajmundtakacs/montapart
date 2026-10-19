@@ -20,7 +20,7 @@ export default function FeatureGrid({ unit }: FeatureGridProps) {
   ];
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3">
       {features.map((f) => (
         <div
           key={f.label}

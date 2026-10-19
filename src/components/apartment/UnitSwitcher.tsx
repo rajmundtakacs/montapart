@@ -14,8 +14,10 @@ export default function UnitSwitcher({ units, activeUnitId, onSwitch }: UnitSwit
       {units.map((unit) => (
         <button
           key={unit.id}
+          type="button"
+          aria-pressed={unit.id === activeUnitId}
           onClick={() => onSwitch(unit.id)}
-          className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+          className={`min-h-11 max-w-full px-4 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
             unit.id === activeUnitId
               ? 'bg-sea-600 text-white shadow-lg shadow-sea-600/25'
               : 'bg-white text-midnight/60 hover:bg-sea-50 hover:text-sea-700 border border-sand-200'

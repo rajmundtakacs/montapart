@@ -3,6 +3,7 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 @import "swiper/css/effect-fade";
+@import "swiper/css/zoom";
 
 @theme {
   --color-sea-50: #f0fafa;
@@ -36,6 +37,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -65,3 +68,40 @@ body {
   background: white !important;
   transform: scale(1.2);
 }
+
+:where(a, button):focus-visible { outline: 3px solid var(--color-sea-400); outline-offset: 4px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.fullscreen-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  border: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.fullscreen-dialog::backdrop { background: var(--color-midnight); }
+.menu-heading { position: sticky; top: 0; background: var(--color-sand-50); z-index: 1; }
+.mobile-navigation { min-height: calc(100% - 4.5rem); justify-content: center; }
+.site-header { padding-top: env(safe-area-inset-top); }
+.hero-home { min-height: 85svh; }
+.hero-compact { min-height: 50svh; }
+.gallery-arrow, .lightbox-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.gallery-arrow { background: rgb(255 255 255 / 90%); color: var(--color-midnight); box-shadow: 0 2px 8px #0002; }
+.gallery-arrow:hover { background: white; }
+.lightbox-button { background: #ffffff1a; }
+.lightbox-button:hover { background: #ffffff33; }
+.gallery-arrow:disabled, .lightbox-button:disabled { opacity: .35; cursor: default; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

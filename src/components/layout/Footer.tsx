@@ -4,10 +4,10 @@ import { contactInfo } from '../../data/contact';
 export default function Footer() {
   return (
     <footer className="bg-midnight text-white/80">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <img
               src="/images/logowhite.png"
               alt="MONTAPART"
@@ -21,11 +21,11 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="text-center md:text-left">
+          <div className="text-center sm:text-left">
             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4">
               Oldalak
             </h4>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col items-center sm:items-start">
               {[
                 { to: '/apartments', label: 'Apartmanok' },
                 { to: '/hotels', label: 'Hotelek' },
@@ -36,7 +36,7 @@ export default function Footer() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="text-sm text-white/60 hover:text-white transition-colors"
+                  className="inline-flex min-h-11 items-center text-sm text-white/60 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -45,29 +45,29 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="text-center md:text-left">
+          <div className="text-center sm:text-left">
             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4">
               Kapcsolat
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-1">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="block text-sm text-white/60 hover:text-white transition-colors"
+                className="flex min-h-11 items-center justify-center sm:justify-start break-all text-sm text-white/60 hover:text-white transition-colors"
               >
                 {contactInfo.email}
               </a>
               <a
                 href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
-                className="block text-sm text-white/60 hover:text-white transition-colors"
+                className="flex min-h-11 items-center justify-center sm:justify-start break-all text-sm text-white/60 hover:text-white transition-colors"
               >
                 {contactInfo.phone}
               </a>
-              <div className="flex gap-4 pt-2 justify-center md:justify-start">
+              <div className="flex gap-4 pt-2 justify-center sm:justify-start">
                 <a
                   href={contactInfo.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
+                  className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity"
                 >
                   <img src="/images/facebook.png" alt="Facebook" className="h-7 w-7" />
                 </a>
@@ -75,7 +75,7 @@ export default function Footer() {
                   href={contactInfo.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
+                  className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity"
                 >
                   <img src="/images/instagram.png" alt="Instagram" className="h-7 w-7" />
                 </a>

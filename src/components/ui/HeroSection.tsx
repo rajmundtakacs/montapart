@@ -13,7 +13,7 @@ export default function HeroSection({
   image,
   title,
   subtitle,
-  height = 'h-[85vh]',
+  height = 'hero-home',
   overlay = 'gradient',
   children,
 }: HeroSectionProps) {
@@ -53,12 +53,12 @@ export default function HeroSection({
         />
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-10 sm:pt-36 sm:pb-16 w-full">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-4xl md:text-6xl lg:text-7xl text-white font-semibold leading-tight max-w-3xl drop-shadow-lg"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-semibold leading-tight max-w-3xl drop-shadow-lg break-words"
         >
           {title}
         </motion.h1>
@@ -67,7 +67,7 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-4 text-lg md:text-xl text-white/80 max-w-xl font-light drop-shadow-md"
+            className="mt-4 text-base sm:text-lg md:text-xl text-white/80 max-w-xl font-light drop-shadow-md"
           >
             {subtitle}
           </motion.p>

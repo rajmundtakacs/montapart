@@ -27,9 +27,9 @@ export default function ApartmentDetail() {
 
   return (
     <div className="pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-midnight/40 mb-6">
+        <nav className="flex flex-wrap items-center gap-2 text-sm text-midnight/40 mb-6">
           <Link to="/apartments" className="hover:text-sea-600 transition-colors">
             Apartmanok
           </Link>
@@ -51,29 +51,35 @@ export default function ApartmentDetail() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+        <div className="mb-6 lg:hidden">
+          <UnitSwitcher units={apartment.units} activeUnitId={activeUnitId} onSwitch={setActiveUnitId} />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
           {/* Gallery - 3 cols */}
           <motion.div
-            className="lg:col-span-3"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="min-w-0 lg:col-span-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
           >
-            <ImageGallery images={activeUnit.images} name={apartment.name} />
+            <ImageGallery key={`${slug}-${activeUnit.id}`} images={activeUnit.images} name={apartment.name} />
           </motion.div>
 
           {/* Details - 2 cols */}
           <motion.div
-            className="lg:col-span-2 space-y-6"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="min-w-0 lg:col-span-2 space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
           >
-            <UnitSwitcher
-              units={apartment.units}
-              activeUnitId={activeUnitId}
-              onSwitch={setActiveUnitId}
-            />
+            <div className="hidden lg:block">
+              <UnitSwitcher
+                units={apartment.units}
+                activeUnitId={activeUnitId}
+                onSwitch={setActiveUnitId}
+              />
+            </div>
 
             <FeatureGrid unit={activeUnit} />
             <AmenityList amenities={activeUnit.amenities} />
@@ -84,16 +90,16 @@ export default function ApartmentDetail() {
               <p className="text-sm text-midnight/60 mb-4">
                 Foglaláshoz vagy kérdés esetén vegye fel velünk a kapcsolatot!
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
                 <a
                   href="mailto:montapartman@gmail.com"
-                  className="flex-1 text-center bg-sea-600 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-sea-700 transition-colors"
+                  className="flex-1 text-center bg-sea-600 text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-sea-700 transition-colors"
                 >
                   E-mail küldése
                 </a>
                 <a
                   href="tel:+36306482016"
-                  className="flex-1 text-center bg-white text-sea-700 px-5 py-2.5 rounded-full text-sm font-medium border border-sea-200 hover:bg-sea-50 transition-colors"
+                  className="flex-1 text-center bg-white text-sea-700 px-4 py-3 rounded-full text-sm font-medium border border-sea-200 hover:bg-sea-50 transition-colors"
                 >
                   +36 30 648 2016
                 </a>

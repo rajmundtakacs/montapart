@@ -23,11 +23,11 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 flex flex-wrap gap-4"
+          className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4"
         >
           <Link
             to="/apartments"
-            className="inline-flex items-center gap-3 bg-white text-midnight px-9 py-4 rounded-full font-semibold text-base tracking-wide hover:bg-sea-50 transition-colors shadow-lg"
+            className="inline-flex items-center justify-center gap-2 bg-white text-midnight px-5 sm:px-9 py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-sea-50 transition-colors shadow-lg"
           >
             Apartmanok megtekintése
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -36,7 +36,7 @@ export default function Home() {
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 bg-white/15 text-white px-9 py-4 rounded-full font-semibold text-base tracking-wide hover:bg-white/25 transition-colors backdrop-blur-sm border border-white/20"
+            className="inline-flex items-center justify-center gap-3 bg-white/15 text-white px-5 sm:px-9 py-4 rounded-full font-semibold text-sm sm:text-base tracking-wide hover:bg-white/25 transition-colors backdrop-blur-sm border border-white/20"
           >
             Kapcsolat
           </Link>
@@ -44,7 +44,7 @@ export default function Home() {
       </HeroSection>
 
       {/* Category Cards */}
-      <section className="max-w-7xl mx-auto px-6 py-20 relative z-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
             <motion.div
@@ -82,7 +82,7 @@ export default function Home() {
 
       {/* Featured apartments */}
       <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +161,7 @@ export default function Home() {
 
       {/* CTA band */}
       <section className="bg-sea-600 py-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-display text-3xl md:text-4xl text-white font-semibold">
             Foglaljon közvetlenül!
           </h2>

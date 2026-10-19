@@ -15,15 +15,15 @@ export default function CategorySection({ category, index }: CategorySectionProp
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-8"
+        className="relative h-48 sm:h-64 md:h-80 rounded-2xl overflow-hidden mb-8"
       >
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${category.heroImage})` }}
         />
         <div className="absolute inset-0 bg-midnight/40" />
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <h2 className="font-display text-4xl md:text-5xl text-white font-semibold tracking-wide">
+        <div className="relative z-10 flex items-center justify-center h-full px-4 text-center">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-wide">
             {category.name}
           </h2>
         </div>
@@ -32,7 +32,7 @@ export default function CategorySection({ category, index }: CategorySectionProp
       <p className="text-midnight/60 text-lg mb-6 font-light">{category.description}</p>
 
       {/* Items grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {category.items.map((item, i) => (
           <motion.div
             key={i}

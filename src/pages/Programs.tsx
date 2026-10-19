@@ -9,11 +9,11 @@ export default function Programs() {
         image={programHeroImage}
         title="Programok"
         subtitle="Élmények és kalandok a montenegrói tengerparton."
-        height="h-[50vh]"
+        height="hero-compact"
         overlay="dark"
       />
 
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {programs.map((program, i) => (
             <motion.div
@@ -31,8 +31,8 @@ export default function Programs() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight/70 via-midnight/20 to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <h3 className="font-display text-2xl text-white font-semibold">
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                <h3 className="font-display text-xl lg:text-2xl text-white font-semibold">
                   {program.name}
                 </h3>
               </div>
@@ -44,9 +44,9 @@ export default function Programs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 bg-sea-50 rounded-2xl p-8 text-center border border-sea-100"
+          className="mt-12 bg-sea-50 rounded-2xl p-5 sm:p-8 text-center border border-sea-100"
         >
-          <h3 className="font-display text-2xl font-semibold text-midnight mb-2">
+          <h3 className="font-display text-xl lg:text-2xl font-semibold text-midnight mb-2">
             Foglalás
           </h3>
           <p className="text-midnight/60 mb-6">
