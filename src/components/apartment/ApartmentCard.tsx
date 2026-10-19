@@ -8,7 +8,12 @@ interface ApartmentCardProps {
 }
 
 export default function ApartmentCard({ apartment, index }: ApartmentCardProps) {
-  const totalCapacity = apartment.units.reduce((sum, u) => sum + u.capacity, 0);
+  const totalCapacity = apartment.units.reduce((sum, unit) => {
+    const maximum = typeof unit.capacity === 'number'
+      ? unit.capacity
+      : Number(unit.capacity.split('-')[1]);
+    return sum + maximum;
+  }, 0);
 
   return (
     <motion.div

@@ -9,14 +9,16 @@ export default function FeatureGrid({ unit }: FeatureGridProps) {
   const features = [
     { icon: Users, label: 'Kapacitás', value: `${unit.capacity} fő` },
     { icon: BedDouble, label: 'Hálószoba', value: `${unit.bedrooms}` },
-    { icon: ShowerHead, label: 'Fürdőszoba', value: `${unit.bathrooms}` },
+    ...(unit.bathrooms !== undefined
+      ? [{ icon: ShowerHead, label: 'Fürdőszoba', value: `${unit.bathrooms}` }]
+      : []),
     { icon: Sofa, label: 'Nappali', value: unit.hasLivingRoom ? 'igen' : 'nem' },
     { icon: CookingPot, label: 'Konyha', value: unit.hasKitchen ? 'igen' : 'nem' },
-    { icon: Sun, label: 'Terasz', value: unit.hasTerrace ? 'igen' : 'nem' },
+    { icon: Sun, label: 'Terasz', value: unit.terraceCount ? `${unit.terraceCount}` : unit.hasTerrace ? 'igen' : 'nem' },
     ...(unit.seaDistance
       ? [{ icon: Waves, label: 'Tenger', value: unit.seaDistance }]
       : []),
-    { icon: Car, label: 'Parkoló', value: unit.amenities.includes('Parkoló') ? 'igen' : 'nem' },
+    ...(unit.parking ? [{ icon: Car, label: 'Parkoló', value: unit.parking }] : []),
   ];
 
   return (

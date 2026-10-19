@@ -24,12 +24,8 @@ const amenityIcons: Record<string, LucideIcon> = {
   'Vízforraló': Coffee,
 };
 
-const HIDDEN_AMENITIES = ['Parkoló'];
-
 export default function AmenityList({ amenities }: AmenityListProps) {
-  const filtered = amenities.filter((a) => !HIDDEN_AMENITIES.includes(a));
-
-  if (filtered.length === 0) return null;
+  if (amenities.length === 0) return null;
 
   return (
     <div className="bg-white rounded-xl p-5 border border-sand-100">
@@ -37,8 +33,8 @@ export default function AmenityList({ amenities }: AmenityListProps) {
         Felszereltség
       </h4>
       <div className="flex flex-wrap justify-center gap-1.5">
-        {filtered.map((amenity) => {
-          const Icon = amenityIcons[amenity] || Check;
+        {amenities.map((amenity) => {
+          const Icon = amenityIcons[amenity.split(' (')[0]] || Check;
           return (
             <span
               key={amenity}
