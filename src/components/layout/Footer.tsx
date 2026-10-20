@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-center">
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-white/45">
             &copy; {new Date().getFullYear()} MONTAPART. Minden jog fenntartva.
           </p>
           <p className="text-xs text-white/60">

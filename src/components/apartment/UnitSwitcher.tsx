@@ -10,7 +10,7 @@ export default function UnitSwitcher({ units, activeUnitId, onSwitch }: UnitSwit
   if (units.length <= 1) return null;
 
   return (
-    <div className="flex gap-2 flex-wrap justify-center">
+    <div className="flex gap-2 flex-wrap justify-center lg:justify-start">
       {units.map((unit) => (
         <button
           key={unit.id}

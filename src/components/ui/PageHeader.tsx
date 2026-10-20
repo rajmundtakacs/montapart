@@ -21,7 +21,7 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-3 text-lg text-midnight/60 max-w-2xl font-light"
+          className="mt-3 text-lg text-midnight/65 max-w-2xl"
         >
           {subtitle}
         </motion.p>

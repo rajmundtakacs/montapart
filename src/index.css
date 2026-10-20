@@ -32,6 +32,10 @@
   --color-slate-deep: #1a2d42;
 
   --font-display: "Playfair Display", Georgia, serif;
+
+  /* Soft, slightly navy-tinted elevation instead of Tailwind's grey defaults */
+  --shadow-card: 0 1px 2px rgb(12 27 42 / 0.04), 0 8px 24px -10px rgb(12 27 42 / 0.14);
+  --shadow-card-hover: 0 2px 4px rgb(12 27 42 / 0.05), 0 20px 40px -14px rgb(12 27 42 / 0.25);
   --font-body: "Montserrat", system-ui, sans-serif;
 }
 
@@ -48,6 +52,32 @@ body {
   background-color: var(--color-sand-50);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: var(--color-sea-200); color: var(--color-midnight); }
+
+/* Display type: tighter tracking at large sizes, balanced line breaks */
+.font-display { letter-spacing: -0.012em; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* Small uppercase label above section titles */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-sea-600);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
 }
 
 /* Swiper - hide default nav buttons, we use custom Lucide ones */

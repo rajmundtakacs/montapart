@@ -43,7 +43,7 @@ function SiteHeader({ variant = 'dark' }: HeaderProps) {
   return (
     <>
       <header className={`site-header fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        isTransparent ? 'bg-transparent' : 'bg-sand-50/95 backdrop-blur-md shadow-sm'
+        isTransparent ? 'bg-transparent' : 'bg-sand-50/90 backdrop-blur-md border-b border-sand-200/70'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 xl:h-20 gap-6">
           <Link to="/" aria-label="Montapart – főoldal" className="shrink-0">

@@ -43,12 +43,12 @@ export default function ApartmentDetail() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="mb-10"
         >
-          <h1 className="font-display text-3xl md:text-4xl font-semibold text-midnight mb-3">
+          <h1 className="font-display text-3xl md:text-5xl font-semibold text-midnight mb-4">
             {apartment.name}
           </h1>
-          <p className="text-midnight/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-midnight/70 max-w-3xl leading-relaxed md:text-lg">
             {apartment.description}
           </p>
         </motion.div>

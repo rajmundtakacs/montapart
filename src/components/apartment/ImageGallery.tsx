@@ -30,7 +30,7 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
           {images.map((img, i) => (
             <SwiperSlide key={img}>
               <button type="button" tabIndex={activeIndex === i ? 0 : -1} className="relative block w-full h-full cursor-zoom-in" aria-label={`${i + 1}. kép nagyítása – ${name}`} onClick={() => setLightboxIndex(i)}>
-                {portraitSet.has(i) && <div className="absolute inset-0 bg-cover bg-center blur-3xl scale-125 opacity-20 brightness-125" style={{ backgroundImage: `url(${img})` }} />}
+                {portraitSet.has(i) && <div className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-50" style={{ backgroundImage: `url(${img})` }} />}
                 <img src={img} alt={`${name} – ${i + 1}. kép`} loading={i < 2 ? 'eager' : 'lazy'} onLoad={(e) => handleImageLoad(i, e)} className={`relative w-full h-full ${portraitSet.has(i) ? 'object-contain' : 'object-cover'}`} />
               </button>
             </SwiperSlide>

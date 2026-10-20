@@ -29,10 +29,10 @@ export default function AmenityList({ amenities }: AmenityListProps) {
 
   return (
     <div className="bg-white rounded-xl p-5 border border-sand-100">
-      <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/40 mb-4 text-center">
+      <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/50 mb-4">
         Felszereltség
       </h4>
-      <div className="flex flex-wrap justify-center gap-1.5">
+      <div className="flex flex-wrap gap-1.5">
         {amenities.map((amenity) => {
           const Icon = amenityIcons[amenity.split(' (')[0]] || Check;
           return (
