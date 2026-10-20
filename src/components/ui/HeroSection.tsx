@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 
 interface HeroSectionProps {
   image: string;
-  title: string;
+  mobileImage?: string;
+  title: React.ReactNode;
   subtitle?: string;
   height?: string;
   overlay?: 'dark' | 'gradient';
@@ -11,6 +12,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   image,
+  mobileImage,
   title,
   subtitle,
   height = 'hero-home',
@@ -21,36 +23,39 @@ export default function HeroSection({
 
   return (
     <section
-      className={`relative ${height} flex items-end overflow-hidden`}
+      className={`relative ${height} flex ${isHome ? 'items-center' : 'items-end'} overflow-hidden`}
     >
-      {/* Background image with slight blur to mask low resolution */}
-      <div
-        className={`absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 ${
-          isHome ? 'blur-[2px]' : ''
+      {/* Decorative hero photo; serve a smaller source on phones. */}
+      <picture
+        className={`absolute inset-0 ${
+          isHome ? '' : 'scale-110'
         }`}
-        style={{ backgroundImage: `url(${image})` }}
-      />
+      >
+        {mobileImage && <source media="(max-width: 639px)" srcSet={mobileImage} />}
+        <img
+          src={image}
+          alt=""
+          fetchPriority={isHome ? 'high' : undefined}
+          className={`w-full h-full object-cover ${isHome ? 'object-[20%_center] sm:object-center' : 'object-center'}`}
+        />
+      </picture>
 
-      {/* Color-graded overlay: teal tint + gradient for cinematic feel */}
+      {/* Soften detail behind the copy, fading into the sharp open sea. */}
       {isHome && (
-        <div className="absolute inset-0 bg-sea-800/25 mix-blend-multiply" />
+        <div className="absolute inset-0 backdrop-blur-[1px] [mask-image:linear-gradient(90deg,black_15%,transparent_75%)] lg:[mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)] pointer-events-none" />
       )}
+
+      {/* Shade the text side while preserving the coast's daylight colors. */}
       <div
         className={`absolute inset-0 ${
           isHome
-            ? 'bg-gradient-to-t from-midnight/90 via-midnight/30 to-midnight/10'
+            ? 'bg-gradient-to-r from-midnight/40 via-midnight/10 to-transparent lg:bg-radial lg:from-midnight/30 lg:via-midnight/15'
             : 'bg-midnight/40'
         }`}
       />
 
-      {/* Subtle grain texture to add perceived detail */}
       {isHome && (
-        <div
-          className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight/33 via-transparent to-midnight/10 pointer-events-none" />
       )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-10 sm:pt-36 sm:pb-16 w-full">
@@ -58,7 +63,7 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-semibold leading-tight max-w-3xl drop-shadow-lg break-words"
+          className={`font-display ${isHome ? 'text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] max-w-3xl lg:max-w-none lg:leading-[1.15] lg:text-center' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-3xl'} text-white font-semibold leading-tight drop-shadow-lg break-words`}
         >
           {title}
         </motion.h1>
@@ -67,7 +72,7 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-4 text-base sm:text-lg md:text-xl text-white/80 max-w-xl font-light drop-shadow-md"
+            className={`mt-4 text-base sm:text-lg md:text-xl text-white/95 max-w-xl font-normal drop-shadow-md ${isHome ? 'lg:mx-auto lg:text-center' : ''}`}
           >
             {subtitle}
           </motion.p>

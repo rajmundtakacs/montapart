@@ -15,19 +15,20 @@ export default function Home() {
   return (
     <>
       <HeroSection
-        image="/images/index/main3.png"
-        title="Tenger karnyújtásnyira, elérhető áron."
+        image="/images/index/hero-budva-open.webp"
+        mobileImage="/images/index/hero-budva-open-mobile.webp"
+        title={<>Tenger karnyújtásnyira,{' '}<span className="lg:block">elérhető áron.</span></>}
         subtitle="Válogatott apartmanok a montenegrói tengerparton, személyes ajánlással."
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4"
+          className="mt-8 sm:mt-12 flex flex-col sm:items-start lg:items-center"
         >
           <Link
             to="/apartments"
-            className="inline-flex items-center justify-center gap-2 bg-white text-midnight px-5 sm:px-9 py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-sea-50 transition-colors shadow-lg"
+            className="inline-flex w-full sm:w-[22rem] items-center justify-center gap-2 bg-white text-midnight px-5 sm:px-9 py-4 rounded-full font-semibold text-sm sm:text-base whitespace-nowrap hover:bg-sea-50 transition-colors shadow-lg"
           >
             Apartmanok megtekintése
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -36,7 +37,7 @@ export default function Home() {
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-3 bg-white/15 text-white px-5 sm:px-9 py-4 rounded-full font-semibold text-sm sm:text-base tracking-wide hover:bg-white/25 transition-colors backdrop-blur-sm border border-white/20"
+            className="mt-3 sm:mt-4 inline-flex w-full sm:w-[22rem] items-center justify-center gap-3 bg-white/15 text-white px-5 sm:px-9 py-4 rounded-full font-semibold text-sm sm:text-base tracking-wide hover:bg-white/25 transition-colors backdrop-blur-sm border border-white/20"
           >
             Kapcsolat
           </Link>
