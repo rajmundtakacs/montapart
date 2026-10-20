@@ -5,9 +5,24 @@
     <link rel="icon" type="image/svg+xml" href="/images/logoblack.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MONTAPART – Tenger karnyújtásnyira, elérhető áron</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/fonts/montserrat-v31-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/montserrat-v31-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/playfair-display-v40-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/playfair-display-v40-latin-ext-600.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      // Start the matching homepage photo before the React bundle finishes.
+      // Other routes share this HTML and should not download a homepage image.
+      if (window.location.pathname === '/') {
+        const hero = document.createElement('link');
+        hero.rel = 'preload';
+        hero.as = 'image';
+        hero.fetchPriority = 'high';
+        hero.href = window.matchMedia('(max-width: 639px)').matches
+          ? '/images/index/hero-budva-open-mobile.webp'
+          : '/images/index/hero-budva-open.webp';
+        document.head.appendChild(hero);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
