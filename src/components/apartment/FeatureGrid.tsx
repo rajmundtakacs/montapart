@@ -1,4 +1,4 @@
-import { Users, BedDouble, CookingPot, Sun, Sofa, ShowerHead, Waves, Car } from 'lucide-react';
+import { Users, BedDouble, CookingPot, Sun, Sofa, ShowerHead, Waves, Car, Check } from 'lucide-react';
 import type { ApartmentUnit } from '../../data/apartments';
 
 interface FeatureGridProps {
@@ -38,7 +38,14 @@ export default function FeatureGrid({ unit }: FeatureGridProps) {
           >
             <f.icon className="w-5 h-5 mx-auto mb-2 text-sea-600 shrink-0" strokeWidth={1.5} />
             <div className="text-[11px] text-midnight/40 uppercase tracking-wider font-medium">{f.label}</div>
-            <div className="text-sm font-semibold text-midnight mt-1">{f.value}</div>
+            <div className="text-sm font-semibold text-midnight mt-1">
+              {f.value === 'igen' ? (
+                <>
+                  <Check className="w-5 h-5 mx-auto text-sea-600" strokeWidth={2.5} aria-hidden="true" />
+                  <span className="sr-only">igen</span>
+                </>
+              ) : f.value}
+            </div>
           </div>
         ))}
       </div>
