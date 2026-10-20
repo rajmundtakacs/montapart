@@ -1,3 +1,4 @@
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 import { motion } from 'framer-motion';
 import { contactInfo } from '../data/contact';
 
@@ -13,9 +14,9 @@ export default function Contact() {
     <div className="pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
           className="text-center mb-12"
         >
           <h1 className="font-display text-4xl md:text-5xl font-semibold text-midnight">
@@ -29,9 +30,9 @@ export default function Contact() {
         <div className="space-y-6">
           {/* Email & Phone */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.2 }}
             className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-100 grid grid-cols-1 md:grid-cols-2 gap-3"
           >
             <a
@@ -67,9 +68,9 @@ export default function Contact() {
 
           {/* Messaging channels */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.2 }}
             className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-100"
           >
             <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/40 mb-6 text-center">
@@ -81,7 +82,7 @@ export default function Contact() {
                   key={ch.name}
                   className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200"
                 >
-                  <img src={ch.icon} alt={ch.name} className="w-10 h-10 object-contain" />
+                  <ResponsiveImage src={ch.icon} sizes="40px" maxWidth={160} alt={ch.name} className="w-10 h-10 object-contain" />
                   <span className="text-sm font-medium text-midnight/70">{ch.name}</span>
                 </button>
               ))}
@@ -90,9 +91,9 @@ export default function Contact() {
 
           {/* Social */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-100"
           >
             <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/40 mb-6 text-center">
@@ -105,7 +106,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200 flex-1 max-w-[200px]"
               >
-                <img src="/images/facebook.png" alt="Facebook" className="w-10 h-10 object-contain" />
+                <ResponsiveImage src="/images/facebook.png" sizes="40px" maxWidth={160} alt="Facebook" className="w-10 h-10 object-contain" />
                 <span className="text-sm font-medium text-midnight/70">Facebook</span>
               </a>
               <a
@@ -114,7 +115,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200 flex-1 max-w-[200px]"
               >
-                <img src="/images/instagram.png" alt="Instagram" className="w-10 h-10 object-contain" />
+                <ResponsiveImage src="/images/instagram.png" sizes="40px" maxWidth={160} alt="Instagram" className="w-10 h-10 object-contain" />
                 <span className="text-sm font-medium text-midnight/70">Instagram</span>
               </a>
             </div>

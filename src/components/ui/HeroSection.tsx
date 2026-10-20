@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ResponsiveImage from './ResponsiveImage';
 
 interface HeroSectionProps {
   image: string;
@@ -32,8 +33,9 @@ export default function HeroSection({
         }`}
       >
         {mobileImage && <source media="(max-width: 639px)" srcSet={mobileImage} />}
-        <img
+        <ResponsiveImage
           src={image}
+          sizes="100vw"
           alt=""
           fetchPriority={isHome ? 'high' : undefined}
           className={`w-full h-full object-cover ${isHome ? 'object-[20%_center] sm:object-center' : 'object-center'}`}
@@ -60,18 +62,18 @@ export default function HeroSection({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-10 sm:pt-36 sm:pb-16 w-full">
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.25 }}
           className={`font-display ${isHome ? 'text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] max-w-3xl lg:max-w-none lg:leading-[1.15] lg:text-center' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-3xl'} text-white font-semibold leading-tight drop-shadow-lg break-words`}
         >
           {title}
         </motion.h1>
         {subtitle && (
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.25, delay: 0.05 }}
             className={`mt-4 text-base sm:text-lg md:text-xl text-white/95 max-w-xl font-normal drop-shadow-md ${isHome ? 'lg:mx-auto lg:text-center' : ''}`}
           >
             {subtitle}

@@ -4,6 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "images:optimize": "node scripts/optimize-images.mjs",
+    "predev": "npm run images:optimize",
+    "prebuild": "npm run images:optimize",
+    "prelint": "npm run images:optimize",
+    "pretest": "npm run images:optimize",
+    "test": "node --test tests/*.test.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

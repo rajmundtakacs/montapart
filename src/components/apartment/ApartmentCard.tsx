@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import ResponsiveImage from '../ui/ResponsiveImage';
 import type { Apartment } from '../../data/apartments';
 
 interface ApartmentCardProps {
   apartment: Apartment;
-  index: number;
 }
 
-export default function ApartmentCard({ apartment, index }: ApartmentCardProps) {
+export default function ApartmentCard({ apartment }: ApartmentCardProps) {
   const totalCapacity = apartment.units.reduce((sum, unit) => {
     const maximum = typeof unit.capacity === 'number'
       ? unit.capacity
@@ -16,20 +15,17 @@ export default function ApartmentCard({ apartment, index }: ApartmentCardProps) 
   }, 0);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-    >
+    <div>
       <Link
         to={`/apartments/${apartment.slug}`}
         className="group block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500"
       >
         {/* Full card is the image - overlay text approach handles mixed aspect ratios better */}
         <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden">
-          <img
+          <ResponsiveImage
             src={apartment.thumbnail}
+            sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            maxWidth={800}
             alt={apartment.name}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -67,6 +63,6 @@ export default function ApartmentCard({ apartment, index }: ApartmentCardProps) 
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }

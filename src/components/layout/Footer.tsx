@@ -1,3 +1,4 @@
+import ResponsiveImage from '../ui/ResponsiveImage';
 import { Link } from 'react-router-dom';
 import { contactInfo } from '../../data/contact';
 
@@ -8,8 +9,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <img
-              src="/images/logowhite.png"
+            <ResponsiveImage
+              src="/images/logowhite.png" sizes="160px" maxWidth={480}
               alt="MONTAPART"
               className="h-10 w-auto mb-4"
             />
@@ -69,7 +70,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity"
                 >
-                  <img src="/images/facebook.png" alt="Facebook" className="h-7 w-7" />
+                  <ResponsiveImage src="/images/facebook.png" sizes="28px" maxWidth={160} loading="lazy" alt="Facebook" className="h-7 w-7" />
                 </a>
                 <a
                   href={contactInfo.instagram}
@@ -77,7 +78,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity"
                 >
-                  <img src="/images/instagram.png" alt="Instagram" className="h-7 w-7" />
+                  <ResponsiveImage src="/images/instagram.png" sizes="28px" maxWidth={160} loading="lazy" alt="Instagram" className="h-7 w-7" />
                 </a>
               </div>
             </div>

@@ -4,6 +4,8 @@ import { A11y, Keyboard, Zoom } from 'swiper/modules';
 import { ChevronLeft, ChevronRight, X, Expand } from 'lucide-react';
 import type { Swiper as SwiperType } from 'swiper';
 import FullscreenDialog from '../ui/FullscreenDialog';
+import ResponsiveImage from '../ui/ResponsiveImage';
+import { getImageVariants } from '../../lib/images';
 
 interface ImageGalleryProps { images: string[]; name: string }
 
@@ -30,8 +32,10 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
           {images.map((img, i) => (
             <SwiperSlide key={img}>
               <button type="button" tabIndex={activeIndex === i ? 0 : -1} className="relative block w-full h-full cursor-zoom-in" aria-label={`${i + 1}. kép nagyítása – ${name}`} onClick={() => setLightboxIndex(i)}>
-                {portraitSet.has(i) && <div className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-50" style={{ backgroundImage: `url(${img})` }} />}
-                <img src={img} alt={`${name} – ${i + 1}. kép`} loading={i < 2 ? 'eager' : 'lazy'} onLoad={(e) => handleImageLoad(i, e)} className={`relative w-full h-full ${portraitSet.has(i) ? 'object-contain' : 'object-cover'}`} />
+                {portraitSet.has(i) && <div className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-50" style={{ backgroundImage: `url(${getImageVariants(img, 160).src})` }} />}
+                {Math.abs(i - activeIndex) <= 1 && (
+                  <ResponsiveImage src={img} sizes="(min-width: 1280px) 736px, (min-width: 1024px) 60vw, 100vw" alt={`${name} – ${i + 1}. kép`} loading="eager" fetchPriority={i === activeIndex ? 'high' : 'low'} onLoad={(e) => handleImageLoad(i, e)} className={`relative w-full h-full ${portraitSet.has(i) ? 'object-contain' : 'object-cover'}`} />
+                )}
               </button>
             </SwiperSlide>
           ))}
@@ -46,7 +50,7 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
       <div aria-label="Képek kiválasztása" className="mt-3 flex gap-2 overflow-x-auto overscroll-x-contain py-2 px-1">
         {images.map((img, i) => (
           <button type="button" key={img} aria-label={`${i + 1}. kép kiválasztása`} aria-pressed={activeIndex === i} onClick={() => swiperRef.current?.slideTo(i)} className={`shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-colors ${activeIndex === i ? 'border-sea-600' : 'border-transparent opacity-60 hover:opacity-100'}`}>
-            <img src={img} alt="" loading="lazy" className="w-full h-full object-cover" />
+            <ResponsiveImage src={img} maxWidth={160} sizes="(min-width: 768px) 80px, 64px" alt="" loading="lazy" className="w-full h-full object-cover" />
           </button>
         ))}
       </div>
@@ -71,7 +75,9 @@ function GalleryLightbox({ images, name, initialIndex, onClose }: { images: stri
           className="w-full flex-1 min-h-0" a11y={{ containerMessage: `${name} nagyított képei` }}>
           {images.map((img, i) => (
             <SwiperSlide key={img}>
-              <div className="swiper-zoom-container"><img src={img} alt={`${name} – ${i + 1}. kép`} loading={i === initialIndex ? 'eager' : 'lazy'} className="w-full h-full object-contain" /></div>
+              <div className="swiper-zoom-container">
+                {Math.abs(i - index) <= 1 && <ResponsiveImage src={img} sizes="100vw" alt={`${name} – ${i + 1}. kép`} loading="eager" fetchPriority={i === index ? 'high' : 'low'} className="w-full h-full object-contain" />}
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

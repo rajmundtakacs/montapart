@@ -134,4 +134,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .lightbox-button { background: #ffffff1a; }
 .lightbox-button:hover { background: #ffffff33; }
 .gallery-arrow:disabled, .lightbox-button:disabled { opacity: .35; cursor: default; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

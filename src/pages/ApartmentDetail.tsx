@@ -40,9 +40,9 @@ export default function ApartmentDetail() {
         </nav>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.25 }}
           className="mb-10"
         >
           <h1 className="font-display text-3xl md:text-5xl font-semibold text-midnight mb-4">
@@ -59,21 +59,15 @@ export default function ApartmentDetail() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
           {/* Gallery - 3 cols */}
-          <motion.div
+          <div
             className="min-w-0 lg:col-span-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
           >
             <ImageGallery key={`${slug}-${activeUnit.id}`} images={activeUnit.images} name={apartment.name} />
-          </motion.div>
+          </div>
 
           {/* Details - 2 cols */}
-          <motion.div
+          <div
             className="min-w-0 lg:col-span-2 space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
           >
             <div className="hidden lg:block">
               <UnitSwitcher
@@ -107,7 +101,7 @@ export default function ApartmentDetail() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

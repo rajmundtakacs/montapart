@@ -4,7 +4,7 @@ import { transferRoutes, taxiCapacity, minibusCapacity } from '../../data/transf
 
 export default function PriceTable() {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+    <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.2 }}>
       <p id="transfer-direction-note" className="mb-4 text-sm sm:text-base text-midnight/70">
         Minden útvonal mindkét irányban kérhető.
       </p>

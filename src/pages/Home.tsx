@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HeroSection from '../components/ui/HeroSection';
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 import { apartments } from '../data/apartments';
 
 const categories = [
@@ -21,9 +22,9 @@ export default function Home() {
         subtitle="Válogatott apartmanok a montenegrói tengerparton, személyes ajánlással."
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.25, delay: 0.1 }}
           className="mt-8 sm:mt-12 flex flex-col sm:items-start lg:items-center"
         >
           <Link
@@ -47,21 +48,20 @@ export default function Home() {
       {/* Category Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-20 md:pt-0 md:-mt-12 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {categories.map((cat, i) => (
-            <motion.div
+          {categories.map((cat) => (
+            <div
               key={cat.to}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <Link
                 to={cat.to}
                 className="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500"
               >
                 <div className="relative h-44 sm:h-56 md:h-64 overflow-hidden">
-                  <img
+                  <ResponsiveImage
                     src={cat.image}
+                    sizes="(min-width: 1280px) 400px, (min-width: 768px) 33vw, 100vw"
+                    maxWidth={1200}
+                    loading="lazy"
                     alt={cat.label}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -76,7 +76,7 @@ export default function Home() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -84,10 +84,7 @@ export default function Home() {
       {/* Featured apartments */}
       <section className="bg-white py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <div
             className="flex items-end justify-between mb-10"
           >
             <div>
@@ -107,24 +104,22 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featured.map((apt, i) => (
-              <motion.div
+            {featured.map((apt) => (
+              <div
                 key={apt.slug}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <Link
                   to={`/apartments/${apt.slug}`}
                   className="group block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-500"
                 >
                   <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-                    <img
+                    <ResponsiveImage
                       src={apt.thumbnail}
+                      sizes="(min-width: 1280px) 292px, (min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      maxWidth={800}
                       alt={apt.name}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -142,7 +137,7 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
 

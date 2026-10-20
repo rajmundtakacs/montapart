@@ -1,100 +1,74 @@
 import sharp from 'sharp';
-import { readdir, stat, mkdir } from 'fs/promises';
-import { join, extname, relative } from 'path';
+import { createHash } from 'node:crypto';
+import { readdir, readFile, writeFile, mkdir, access } from 'node:fs/promises';
+import { dirname, join, relative, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
-const SRC_DIR = 'public/images';
-const MAX_WIDTH = 1600;       // gallery images max
-const THUMB_WIDTH = 600;      // thumbnails
-const QUALITY = 78;           // WebP quality
+// Bump when encoding settings change, so cached derivatives are regenerated.
+const VERSION = 'webp-v1';
+const PHOTO_WIDTHS = [160, 480, 800, 1200, 1600];
+const ICON_WIDTHS = [40, 80, 160];
 
-let totalOriginal = 0;
-let totalOptimized = 0;
-let fileCount = 0;
-
-// Skip PNGs with transparency (logos, icons)
-const SKIP_PATTERNS = ['logo', 'facebook', 'instagram', 'messenger', 'whatsapp', 'telegram', 'viber'];
-
-async function processFile(filePath) {
-  const ext = extname(filePath).toLowerCase();
-  if (!['.jpg', '.jpeg', '.png'].includes(ext)) return;
-
-  // Skip known transparent/icon files
-  const lowerPath = filePath.toLowerCase();
-  if (SKIP_PATTERNS.some(p => lowerPath.includes(p))) {
-    const fileStat = await stat(filePath);
-    totalOriginal += fileStat.size;
-    totalOptimized += fileStat.size;
-    return;
+async function walk(dir, excluded) {
+  const files = [];
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (resolve(path) === resolve(excluded)) continue;
+    if (entry.isDirectory()) files.push(...await walk(path, excluded));
+    else if (/\.(jpe?g|png)$/i.test(entry.name)) files.push(path);
   }
-
-  const fileStat = await stat(filePath);
-  totalOriginal += fileStat.size;
-
-  const isThumb = filePath.includes('thumbnail');
-  const maxW = isThumb ? THUMB_WIDTH : MAX_WIDTH;
-
-  try {
-    const image = sharp(filePath);
-    const metadata = await image.metadata();
-
-    // Skip PNG with alpha channel (transparent images)
-    if (ext === '.png' && metadata.hasAlpha) {
-      totalOptimized += fileStat.size;
-      console.log(`  Skipping (transparent PNG): ${relative(SRC_DIR, filePath)}`);
-      return;
-    }
-
-    // Skip if already small enough
-    if (metadata.width <= maxW && fileStat.size < 200 * 1024) {
-      totalOptimized += fileStat.size;
-      return;
-    }
-
-    const resized = metadata.width > maxW
-      ? image.resize(maxW, null, { withoutEnlargement: true })
-      : image;
-
-    const buffer = await resized
-      .jpeg({ quality: QUALITY, progressive: true, mozjpeg: true })
-      .toBuffer();
-
-    // Only write if we actually saved space
-    if (buffer.length < fileStat.size) {
-      const { writeFile } = await import('fs/promises');
-      // Write back as jpg (keeping original extension for compatibility)
-      await writeFile(filePath, buffer);
-      totalOptimized += buffer.length;
-      fileCount++;
-      const pct = ((1 - buffer.length / fileStat.size) * 100).toFixed(0);
-      const rel = relative(SRC_DIR, filePath);
-      console.log(`  ${rel}: ${(fileStat.size / 1024).toFixed(0)}KB → ${(buffer.length / 1024).toFixed(0)}KB (-${pct}%)`);
-    } else {
-      totalOptimized += fileStat.size;
-    }
-  } catch (err) {
-    console.error(`  Error processing ${filePath}: ${err.message}`);
-    totalOptimized += fileStat.size;
-  }
+  return files.sort();
 }
 
-async function walkDir(dir) {
-  const entries = await readdir(dir, { withFileTypes: true });
-  const promises = [];
-  for (const entry of entries) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      promises.push(walkDir(full));
-    } else {
-      promises.push(processFile(full));
+export async function optimizeImages({
+  sourceDir = 'public/images',
+  outputDir = 'public/images/optimized',
+  manifestPath = 'src/generated/image-manifest.ts',
+} = {}) {
+  const files = await walk(sourceDir, outputDir);
+  const entries = new Array(files.length);
+  let cursor = 0;
+  let generated = 0;
+
+  async function worker() {
+    while (cursor < files.length) {
+      const index = cursor++;
+      const path = files[index];
+      const name = relative(sourceDir, path).split('\\').join('/');
+      const bytes = await readFile(path);
+      const hash = createHash('sha256').update(VERSION).update(bytes).digest('hex').slice(0, 12);
+      const metadata = await sharp(bytes).metadata();
+      const { width, height } = metadata.autoOrient ?? metadata;
+      if (!width || !height) throw new Error(`Missing image dimensions: ${name}`);
+      const isIcon = /(^|\/)(facebook|instagram|messenger|whatsapp|telegram|viber|footer)\./i.test(name) || name.startsWith('ikonok/');
+      const limit = isIcon ? 160 : 1600;
+      const widths = [...new Set([...(isIcon ? ICON_WIDTHS : PHOTO_WIDTHS).filter(w => w < Math.min(width, limit)), Math.min(width, limit)])];
+
+      for (const targetWidth of widths) {
+        const target = join(outputDir, `${name}.${hash}.${targetWidth}.webp`);
+        try { await access(target); } catch {
+          await mkdir(dirname(target), { recursive: true });
+          await sharp(bytes).rotate().resize({ width: targetWidth, withoutEnlargement: true })
+            .webp({ quality: isIcon ? 85 : targetWidth <= 160 ? 72 : 80, effort: 4 }).toFile(target);
+          generated++;
+        }
+      }
+      entries[index] = [`/images/${name}`, { width, height, hash, widths }];
     }
   }
-  await Promise.all(promises);
+
+  // Bound memory and CPU use on local machines and Netlify build workers.
+  await Promise.all(Array.from({ length: 4 }, () => worker()));
+  const manifest = Object.fromEntries(entries);
+  const content = `// Generated by scripts/optimize-images.mjs; do not edit.\nexport default ${JSON.stringify(manifest)} as Record<string, { width: number; height: number; hash: string; widths: number[] }>;\n`;
+  await mkdir(dirname(manifestPath), { recursive: true });
+  let previous;
+  try { previous = await readFile(manifestPath, 'utf8'); } catch { /* First build. */ }
+  if (previous !== content) await writeFile(manifestPath, content);
+  return { manifest, generated };
 }
 
-console.log('Optimizing images...\n');
-await walkDir(SRC_DIR);
-
-console.log(`\nDone! Optimized ${fileCount} files.`);
-console.log(`  Before: ${(totalOriginal / 1024 / 1024).toFixed(1)} MB`);
-console.log(`  After:  ${(totalOptimized / 1024 / 1024).toFixed(1)} MB`);
-console.log(`  Saved:  ${((totalOriginal - totalOptimized) / 1024 / 1024).toFixed(1)} MB (${((1 - totalOptimized / totalOriginal) * 100).toFixed(0)}%)`);
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  const { manifest, generated } = await optimizeImages();
+  console.log(`Images: ${Object.keys(manifest).length} sources, ${generated} WebP variants generated. Original files preserved.`);
+}

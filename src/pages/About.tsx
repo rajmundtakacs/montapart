@@ -1,3 +1,4 @@
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 import { motion } from 'framer-motion';
 import { aboutText } from '../data/contact';
 
@@ -9,7 +10,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.25 }}
           >
             <p className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/40 mb-3">
               Rólam
@@ -38,12 +39,12 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.25 }}
             className="relative mx-auto w-[calc(100%-2rem)] max-w-[350px] my-4"
           >
             <div className="absolute -inset-2 sm:-inset-4 bg-sea-100 rounded-3xl -rotate-3" />
-            <img
-              src={aboutText.image}
+            <ResponsiveImage
+              src={aboutText.image} sizes="350px" maxWidth={800}
               alt={aboutText.name}
               className="relative w-full rounded-2xl max-h-[500px] object-cover shadow-lg"
             />

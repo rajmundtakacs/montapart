@@ -10,8 +10,8 @@ export default function Attractions() {
         subtitle="Strandok, nevezetességek és városok a montenegrói tengerparton."
       />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
-        {attractionCategories.map((cat, i) => (
-          <CategorySection key={cat.slug} category={cat} index={i} />
+        {attractionCategories.map((cat) => (
+          <CategorySection key={cat.slug} category={cat} />
         ))}
       </section>
     </>

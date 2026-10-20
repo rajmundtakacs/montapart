@@ -1,3 +1,4 @@
+import ResponsiveImage from '../ui/ResponsiveImage';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -47,7 +48,7 @@ function SiteHeader({ variant = 'dark' }: HeaderProps) {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 xl:h-20 gap-6">
           <Link to="/" aria-label="Montapart – főoldal" className="shrink-0">
-            <img src={isTransparent ? '/images/logowhite.png' : '/images/logoblack.png'} alt="MONTAPART" className="h-10 xl:h-12 w-auto" />
+            <ResponsiveImage sizes="180px" maxWidth={480} src={isTransparent ? '/images/logowhite.png' : '/images/logoblack.png'} alt="MONTAPART" className="h-10 xl:h-12 w-auto" />
           </Link>
           <nav aria-label="Fő navigáció" className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -71,7 +72,7 @@ function SiteHeader({ variant = 'dark' }: HeaderProps) {
         <FullscreenDialog label="Navigáció" onClose={() => setMenuOpen(false)} className="bg-sand-50 text-midnight">
           <div className="menu-heading max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-18">
             <Link to="/" onClick={() => setMenuOpen(false)} aria-label="Montapart – főoldal">
-              <img src="/images/logoblack.png" alt="MONTAPART" className="h-10 w-auto" />
+              <ResponsiveImage sizes="180px" maxWidth={480} src="/images/logoblack.png" alt="MONTAPART" className="h-10 w-auto" />
             </Link>
             <button type="button" data-dialog-focus onClick={() => setMenuOpen(false)} aria-label="Menü bezárása" className="w-12 h-12 rounded-full flex items-center justify-center hover:bg-sand-100">
               <X aria-hidden="true" className="w-6 h-6" />

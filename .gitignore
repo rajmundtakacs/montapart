@@ -10,6 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+/public/images/optimized/
+/src/generated/image-manifest.ts
 .netlify/
 *.local
 

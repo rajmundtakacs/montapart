@@ -1,25 +1,23 @@
-import { motion } from 'framer-motion';
+import ResponsiveImage from '../ui/ResponsiveImage';
 import type { AttractionCategory } from '../../data/attractions';
 
 interface CategorySectionProps {
   category: AttractionCategory;
-  index: number;
 }
 
-export default function CategorySection({ category, index }: CategorySectionProps) {
+export default function CategorySection({ category }: CategorySectionProps) {
   return (
     <section className="mb-16">
       {/* Hero banner */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
+      <div
         className="relative h-48 sm:h-64 md:h-80 rounded-2xl overflow-hidden mb-8"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${category.heroImage})` }}
+        <ResponsiveImage
+          src={category.heroImage}
+          sizes="(min-width: 1280px) 1232px, 100vw"
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-midnight/40" />
         <div className="relative z-10 flex items-center justify-center h-full px-4 text-center">
@@ -27,29 +25,27 @@ export default function CategorySection({ category, index }: CategorySectionProp
             {category.name}
           </h2>
         </div>
-      </motion.div>
+      </div>
 
       <p className="text-midnight/60 text-lg mb-6 font-light">{category.description}</p>
 
       {/* Items grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {category.items.map((item, i) => (
-          <motion.div
+          <div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
             className="group rounded-xl overflow-hidden aspect-square relative"
           >
-            <img
+            <ResponsiveImage
               src={item.image}
+              sizes="(min-width: 1280px) 296px, (min-width: 1024px) 25vw, 50vw"
+              maxWidth={800}
               alt={item.name}
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
