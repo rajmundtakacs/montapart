@@ -91,8 +91,7 @@ export default function Home() {
             className="flex items-end justify-between mb-10"
           >
             <div>
-              <span className="eyebrow">Szállások</span>
-              <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-midnight">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-midnight">
                 Kiemelt apartmanok
               </h2>
               <p className="mt-2 text-midnight/60">
