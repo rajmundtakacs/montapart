@@ -84,9 +84,21 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-6 text-center">
+        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-center">
           <p className="text-xs text-white/30">
             &copy; {new Date().getFullYear()} MONTAPART. Minden jog fenntartva.
+          </p>
+          <p className="text-xs text-white/60">
+            Készítette:{' '}
+            <a
+              href="https://ri-webstudio.eu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center rounded-sm font-semibold underline underline-offset-4 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              RI Web Studio
+              <span className="sr-only"> — új lapon nyílik meg</span>
+            </a>
           </p>
         </div>
       </div>
