@@ -156,13 +156,12 @@ export default function Home() {
       </section>
 
       {/* CTA band */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-sea-700 via-sea-600 to-sea-700 py-20">
-        <div aria-hidden="true" className="absolute -top-32 left-1/2 -translate-x-1/2 w-[48rem] h-64 rounded-full bg-sea-400/25 blur-3xl" />
+      <section className="relative overflow-hidden bg-sea-300 py-20">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-display text-3xl md:text-4xl text-white font-semibold">
+          <h2 className="font-display text-3xl md:text-4xl text-midnight font-semibold">
             Foglaljon közvetlenül!
           </h2>
-          <p className="mt-4 text-sea-50/85 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-midnight/90 max-w-xl mx-auto leading-relaxed">
             Írjon nekünk e-mailben vagy hívjon telefonon, és segítünk megtalálni a tökéletes szállást.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -174,7 +173,7 @@ export default function Home() {
             </Link>
             <a
               href="tel:+36306482016"
-              className="bg-white/15 text-white px-7 py-3.5 rounded-full font-medium text-sm hover:bg-white/25 transition-colors border border-white/20"
+              className="bg-white/30 text-midnight px-7 py-3.5 rounded-full font-medium text-sm hover:bg-white/60 transition-colors border border-sea-700/25"
             >
               +36 30 648 2016
             </a>

@@ -40,20 +40,21 @@
 }
 
 @theme {
-  --color-sea-50: #f0fafa;
-  --color-sea-100: #d4f1f1;
-  --color-sea-200: #ade4e4;
-  --color-sea-300: #7dd1d1;
-  --color-sea-400: #4db8b8;
-  --color-sea-500: #2e9e9e;
-  --color-sea-600: #237e7e;
-  --color-sea-700: #1f6565;
-  --color-sea-800: #1d5050;
-  --color-sea-900: #1a4242;
+  /* Turquoise blues echo the original site's light, coastal palette. */
+  --color-sea-50: #eef8fa;
+  --color-sea-100: #d8ecef;
+  --color-sea-200: #b7dde3;
+  --color-sea-300: #78c6d6;
+  --color-sea-400: #4aacc4;
+  --color-sea-500: #448fa4;
+  --color-sea-600: #2c768e;
+  --color-sea-700: #285e73;
+  --color-sea-800: #274e60;
+  --color-sea-900: #254350;
 
-  --color-sand-50: #faf8f5;
-  --color-sand-100: #f3efe8;
-  --color-sand-200: #e8dfd2;
+  --color-sand-50: #f3f9fa;
+  --color-sand-100: #e9f3f5;
+  --color-sand-200: #d7e8ec;
   --color-sand-300: #d4c5ad;
   --color-sand-400: #c0a988;
   --color-sand-500: #b0926c;
