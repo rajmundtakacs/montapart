@@ -161,19 +161,19 @@ export default function Home() {
           <h2 className="font-display text-3xl md:text-4xl text-midnight font-semibold">
             Foglaljon közvetlenül!
           </h2>
-          <p className="mt-4 text-midnight/90 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-midnight font-medium max-w-xl mx-auto leading-relaxed">
             Írjon nekünk e-mailben vagy hívjon telefonon, és segítünk megtalálni a tökéletes szállást.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               to="/contact"
-              className="bg-white text-sea-700 px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-sea-50 transition-colors shadow-card"
+              className="bg-white text-midnight px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-sea-50 transition-colors shadow-card"
             >
               Kapcsolatfelvétel
             </Link>
             <a
               href="tel:+36306482016"
-              className="bg-white/30 text-midnight px-7 py-3.5 rounded-full font-medium text-sm hover:bg-white/60 transition-colors border border-sea-700/25"
+              className="bg-white/30 text-midnight px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-white/60 transition-colors border border-sea-700/25"
             >
               +36 30 648 2016
             </a>

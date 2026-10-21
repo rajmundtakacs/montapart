@@ -12,11 +12,11 @@ export default function PriceTable() {
         <table aria-describedby="transfer-direction-note" className="w-full table-fixed text-sm sm:text-base text-center">
           <caption className="sr-only">Repülőtéri transzfer árak euróban, úti cél és jármű szerint</caption>
           <colgroup><col className="w-[60%] sm:w-1/2" /><col className="w-[20%] sm:w-1/4" /><col className="w-[20%] sm:w-1/4" /></colgroup>
-          <thead className="bg-sea-300 text-sea-900">
+          <thead className="bg-sea-300 text-midnight">
             <tr>
               <th scope="col" className="px-2 py-4 font-semibold">Útvonal</th>
-              <th scope="col" className="px-2 py-4 font-semibold">Taxi<span className="block text-sea-800 text-xs sm:text-sm font-normal">{taxiCapacity}</span></th>
-              <th scope="col" className="px-2 py-4 font-semibold">Kisbusz<span className="block text-sea-800 text-xs sm:text-sm font-normal">{minibusCapacity}</span></th>
+              <th scope="col" className="px-2 py-4 font-semibold">Taxi<span className="block text-xs sm:text-sm font-medium">{taxiCapacity}</span></th>
+              <th scope="col" className="px-2 py-4 font-semibold">Kisbusz<span className="block text-xs sm:text-sm font-medium">{minibusCapacity}</span></th>
             </tr>
           </thead>
           <tbody>
