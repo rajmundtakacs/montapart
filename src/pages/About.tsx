@@ -90,7 +90,7 @@ export default function About() {
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-7 sm:gap-y-8">
             {benefits.map(({ title, text }) => (
               <li key={title}>
-                <h3 className="text-base font-semibold text-sea-800 mb-2">{title}</h3>
+                <h3 className="font-display text-[22px] leading-snug font-semibold text-sea-800 mb-3">{title}</h3>
                 <p className="text-midnight/75 leading-relaxed">
                   <EmphasizedText text={text} emphasis={emphasisByTitle[title]} />
                 </p>
