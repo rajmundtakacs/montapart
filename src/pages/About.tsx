@@ -17,6 +17,29 @@ const benefits = [
   { title: 'Megbízható szállások', text: "Célom, hogy teljesen levegyem a szervezés terhét a válláról: kipróbált, megbízható és kiváló ár-érték arányú szállásokat kínálok – rejtett költségek és kellemetlen meglepetések nélkül." },
 ];
 
+const emphasisByTitle: Record<string, string> = {
+  'Szállásközvetítés': 'minden egyes ajánlott szálláshelyet személyesen ismerem',
+  'Programszervezés': 'programszervezői szolgáltatásom',
+  'Idegenvezetés': 'hivatalos idegenvezető',
+  'Nyelvtudás': 'Tökéletesen beszélek a helyi montenegrói nyelven,',
+  'Helyismeret': 'Kiváló helyismerettel rendelkezem.',
+  'Művészettörténeti háttér': 'Művészettörténészként a tények mellett lenyűgöző háttértörténetekkel teszem emlékezetessé a túráimat.',
+  'Megbízható szállások': 'rejtett költségek és kellemetlen meglepetések nélkül.',
+};
+
+function EmphasizedText({ text, emphasis }: { text: string; emphasis: string }) {
+  const start = text.indexOf(emphasis);
+  if (start === -1) return text;
+
+  return (
+    <>
+      {text.slice(0, start)}
+      <strong className="font-semibold text-midnight">{emphasis}</strong>
+      {text.slice(start + emphasis.length)}
+    </>
+  );
+}
+
 export default function About() {
   const reduceMotion = useReducedMotion();
   return (
@@ -52,7 +75,9 @@ export default function About() {
                 </div>
                 <div className="space-y-4 text-midnight/75 leading-relaxed">
                   {(index === 0 ? text.split(/(?=Büszke vagyok)/) : [text]).map((paragraph) => (
-                    <p key={paragraph}>{paragraph.trim()}</p>
+                    <p key={paragraph}>
+                      <EmphasizedText text={paragraph.trim()} emphasis={emphasisByTitle[title]} />
+                    </p>
                   ))}
                 </div>
               </section>
@@ -66,15 +91,17 @@ export default function About() {
             {benefits.map(({ title, text }) => (
               <li key={title}>
                 <h3 className="text-base font-semibold text-sea-800 mb-2">{title}</h3>
-                <p className="text-midnight/75 leading-relaxed">{text}</p>
+                <p className="text-midnight/75 leading-relaxed">
+                  <EmphasizedText text={text} emphasis={emphasisByTitle[title]} />
+                </p>
               </li>
             ))}
           </ul>
         </section>
 
         <div className="max-w-3xl mt-10 sm:mt-12 flex flex-col items-start gap-5">
-          <p className="max-w-3xl text-lg font-medium text-midnight leading-relaxed">
-            <span className="block">Kérdése van, vagy segíthetek a választásban?</span>
+          <p className="max-w-3xl text-lg text-midnight leading-relaxed">
+            <strong className="block font-semibold">Kérdése van, vagy segíthetek a választásban?</strong>
             <span className="block">Keressen bizalommal, és találjuk meg együtt az Önnek tökéletes szállást!</span>
           </p>
           <Link to="/contact" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-3 self-start max-w-full rounded-full bg-sea-600 px-7 py-3 text-white font-semibold hover:bg-sea-700 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea-700">
