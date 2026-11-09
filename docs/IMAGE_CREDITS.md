@@ -18,7 +18,7 @@ The previous `main3.png` asset is retained. Its beach could not be independently
 
 ## Client-supplied town and landmark photographs
 
-- Local originals: 18 JPEG files under `public/images/attractions/varosok/` and `public/images/attractions/nevezetessegek/`, received on 2026-11-09.
+- Local originals: 19 JPEG files under `public/images/attractions/varosok/` and `public/images/attractions/nevezetessegek/`, received on 2026-11-09.
 - The client’s content contributor supplied these for the Montapart website and identified them as her own photographs in the accompanying email. They are client-supplied material, not stock or Creative Commons assets.
 - Original image bytes are preserved. The existing image pipeline creates responsive WebP copies with camera orientation applied; no generated imagery or upscaling is used.
 - Sveti Stefan currently illustrates the new page and its home card provisionally; the client’s final card-image choice is pending.
@@ -45,3 +45,25 @@ Downloaded on 2026-11-09. These three photographs replace the unrelated beach st
 - Hotel photo download: `https://images.unsplash.com/photo-1727537199624-ee471d23c202?fm=jpg&q=85&w=1600&fit=max`. Responsive WebP variants are produced by the existing pipeline, without generated content or upscaling.
 - The hotel image illustrates the general home category only. It is not assigned to any of the existing hotel listings, whose final identities and corresponding photographs remain to be supplied.
 - The Miért éppen Montenegró? card retains the provisional client-supplied Sveti Stefan photograph. The Apartmanok card uses the existing client apartment-gallery photograph `public/images/apartmanok/rusztikus/images/ap3/rusztikus_9.JPG`, showing the sea-view terrace, instead of the previous exterior image. The individual apartment listings and their galleries are unchanged.
+
+
+## Provisional Cetinje photograph — 2026-11-09
+
+- Local original: `public/images/attractions/varosok/cetinje.jpg`.
+- Photographer: Refik Mollabeqiri; [photo on Unsplash](https://unsplash.com/photos/v6_lyoCu7R8).
+- The photographer identifies the location as Cetinje, Montenegro, and describes the subject as a local church. The website uses it as a provisional city illustration, pending a client-supplied replacement.
+- Free use under the [Unsplash License](https://unsplash.com/license), verified on the individual photo page on 2026-11-09.
+- Download: `https://images.unsplash.com/photo-1629293403651-7789f68ce158?fm=jpg&q=85&w=1600&fit=max`. Responsive WebP variants use the existing pipeline, without generative changes or upscaling.
+
+The additional client-supplied photograph is retained as `public/images/attractions/nevezetessegek/lovcen-mauzoleum.jpg`, covered by the client-supplied photographs section above. Its description is pending. The card now uses the provisional exterior photograph credited below.
+
+
+## Lovćen-mauzóleum exterior — 2026-11-09
+
+- Local asset: `public/images/attractions/nevezetessegek/lovcen-mauzoleum-stock.jpg`.
+- Photographer: **Ingo Mehling / Wikimedia Commons**.
+- Source: [Njegos mausoleum frontside.jpg](https://commons.wikimedia.org/wiki/File:Njegos_mausoleum_frontside.jpg), taken 2025-06-08.
+- License: [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/), verified on the file page 2026-11-09. The image and its derivatives remain under this license; the license applies to this image, not to the site's original code or unrelated assets.
+- Downloaded the existing 1280 × 853 thumbnail: `https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Njegos_mausoleum_frontside.jpg/1280px-Njegos_mausoleum_frontside.jpg`.
+- The Lovćen card links to its own photo page, where the author/source and license links and modification notice appear below the photograph; they are not repeated on the list card. The existing responsive pipeline creates resized WebP copies; the card displays a centered 4:3 crop via CSS. No generative changes or upscaling. The downloaded photograph is otherwise unchanged.
+- The earlier client-supplied interior photograph is retained separately for potential later use. No placeholder description was added. The card opens a photo page with the title and credit, pending the client description.

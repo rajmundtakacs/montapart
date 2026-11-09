@@ -1,10 +1,19 @@
 import type { TextRun } from './richText';
 
+export interface PhotoCredit {
+  author: string;
+  sourceUrl: string;
+  license: string;
+  licenseUrl: string;
+  changes?: string;
+}
+
 export interface AttractionPlace {
   slug: string;
   name: string;
   category: 'varosok' | 'nevezetessegek';
   images: string[];
+  photoCredit?: PhotoCredit;
   description: TextRun[];
   descriptionTitle?: string;
   details: { label: string; paragraphs: TextRun[][]; ordered?: boolean }[];
@@ -268,7 +277,7 @@ export const attractionPlaces: AttractionPlace[] = [
     "slug": "cetinje",
     "name": "Cetinje",
     "category": "varosok",
-    "images": [],
+    "images": ["/images/attractions/varosok/cetinje.jpg"],
     "description": [
       {
         "text": "Cetinje:",
@@ -860,6 +869,21 @@ export const attractionPlaces: AttractionPlace[] = [
         "text": " megtekintése bő negyvenperces, izgalmasabb túrát igényel. A várról a legelső írásos feljegyzés 1550-ből származik, bár leletek bizonyítják, hogy már a 13. században is állt a vár; sőt, már korábban is lakott volt, hisz' a Római Birodalom idejéről is találtak leleteket a domb oldalában."
       }
     ],
+    "details": []
+  },
+  {
+    "slug": "lovcen-mauzoleum",
+    "name": "Lovćen-mauzóleum",
+    "category": "nevezetessegek",
+    "images": ["/images/attractions/nevezetessegek/lovcen-mauzoleum-stock.jpg"],
+    "photoCredit": {
+      "author": "Ingo Mehling / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Njegos_mausoleum_frontside.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "méretezve, vágva"
+    },
+    "description": [],
     "details": []
   }
 ];

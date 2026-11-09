@@ -11,7 +11,7 @@ interface Props {
   detailLinks?: boolean;
 }
 
-export type PlacePreview = Pick<AttractionPlace, 'slug' | 'name' | 'images' | 'description'> & {
+export type PlacePreview = Pick<AttractionPlace, 'slug' | 'name' | 'images' | 'description' | 'photoCredit'> & {
   imagePosition?: string;
 };
 
@@ -34,7 +34,7 @@ function PlaceCard({ place, detailLink }: { place: PlacePreview; detailLink: boo
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <h3 className="font-display text-[22px] leading-snug font-semibold text-midnight">{place.name}</h3>
         {text && <p className="mt-3 mb-5 text-sm leading-relaxed text-midnight/70">{text}</p>}
-        {detailLink && (
+        {detailLink && text && (
           <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-sea-700">
             Felfedezem <ArrowRight size={17} aria-hidden="true" />
           </span>
@@ -42,13 +42,17 @@ function PlaceCard({ place, detailLink }: { place: PlacePreview; detailLink: boo
       </div>
     </>
   );
-  const classes = 'flex flex-col overflow-hidden rounded-2xl bg-white shadow-card';
-  return detailLink ? (
-    <Link to={`/attractions/${place.slug}`}
-      className={`group ${classes} transition-shadow hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea-600`}>
-      {content}
-    </Link>
-  ) : <article className={classes}>{content}</article>;
+  const classes = 'flex flex-1 flex-col overflow-hidden rounded-2xl bg-white shadow-card';
+  return (
+    <div className="flex flex-col">
+      {detailLink ? (
+        <Link to={`/attractions/${place.slug}`}
+          className={`group ${classes} transition-shadow hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea-600`}>
+          {content}
+        </Link>
+      ) : <article className={classes}>{content}</article>}
+    </div>
+  );
 }
 
 export default function PlaceSection({ id, title, description, places, detailLinks = true }: Props) {
@@ -57,7 +61,7 @@ export default function PlaceSection({ id, title, description, places, detailLin
       <h2 id={`${id}-heading`} className="font-display text-2xl sm:text-3xl font-semibold text-sea-800">{title}</h2>
       <p className="mt-3 mb-7 max-w-3xl text-midnight/70 leading-relaxed">{description}</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-        {places.map(place => <PlaceCard key={place.slug} place={place} detailLink={detailLinks} />)}
+        {places.map(place => <PlaceCard key={place.slug} place={place} detailLink={detailLinks && (Boolean(place.photoCredit) || place.description.some(run => run.text.trim().length > 0))} />)}
       </div>
     </section>
   );

@@ -51,7 +51,7 @@ function SiteHeader({ variant = 'dark' }: HeaderProps) {
           <Link to="/" aria-label="Montapart – főoldal" className="shrink-0">
             <ResponsiveImage sizes="180px" maxWidth={480} src={isTransparent ? '/images/logowhite.png' : '/images/logoblack.png'} alt="MONTAPART" className="h-10 xl:h-12 w-auto" />
           </Link>
-          <nav aria-label="Fő navigáció" className="hidden xl:flex items-center gap-1">
+          <nav aria-label="Fő navigáció" className="hidden xl:flex items-center gap-2 min-[1440px]:gap-3">
             {navLinks.map((link) => (
               <Link key={link.to} to={link.to} aria-current={isActive(link.to) ? 'page' : undefined}
                 className={`px-3 py-3 text-sm font-medium tracking-wide uppercase whitespace-nowrap rounded-full transition-colors ${
