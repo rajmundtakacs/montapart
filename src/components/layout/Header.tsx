@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import FullscreenDialog from '../ui/FullscreenDialog';
 
 const navLinks = [
+  { to: '/montenegro', label: 'Miért éppen Montenegró?' },
   { to: '/apartments', label: 'Apartmanok' },
   { to: '/hotels', label: 'Hotelek' },
   { to: '/programs', label: 'Programok' },
@@ -44,16 +45,16 @@ function SiteHeader({ variant = 'dark' }: HeaderProps) {
   return (
     <>
       <header className={`site-header fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        isTransparent ? 'bg-transparent' : 'bg-sand-50/90 backdrop-blur-md border-b border-sand-200/70'
+        isTransparent ? 'bg-transparent' : 'bg-sand-50/90 backdrop-blur-md border-b border-sea-100'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 xl:h-20 gap-6">
+        <div className="max-w-site mx-auto px-4 sm:px-6 flex items-center justify-between h-18 xl:h-20 gap-4 xl:gap-6">
           <Link to="/" aria-label="Montapart – főoldal" className="shrink-0">
             <ResponsiveImage sizes="180px" maxWidth={480} src={isTransparent ? '/images/logowhite.png' : '/images/logoblack.png'} alt="MONTAPART" className="h-10 xl:h-12 w-auto" />
           </Link>
           <nav aria-label="Fő navigáció" className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link key={link.to} to={link.to} aria-current={isActive(link.to) ? 'page' : undefined}
-                className={`px-4 py-3 text-sm font-medium tracking-wide uppercase rounded-full transition-colors ${
+                className={`px-3 py-3 text-sm font-medium tracking-wide uppercase whitespace-nowrap rounded-full transition-colors ${
                   isActive(link.to)
                     ? isTransparent ? 'bg-white/20 text-white' : 'bg-sea-100 text-sea-700'
                     : isTransparent ? 'text-white/90 hover:bg-white/10' : 'text-midnight/70 hover:bg-sand-100'
@@ -70,7 +71,7 @@ function SiteHeader({ variant = 'dark' }: HeaderProps) {
       </header>
       {menuOpen && (
         <FullscreenDialog label="Navigáció" onClose={() => setMenuOpen(false)} className="bg-sand-50 text-midnight">
-          <div className="menu-heading max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-18">
+          <div className="menu-heading max-w-site mx-auto flex items-center justify-between px-4 sm:px-6 h-18">
             <Link to="/" onClick={() => setMenuOpen(false)} aria-label="Montapart – főoldal">
               <ResponsiveImage sizes="180px" maxWidth={480} src="/images/logoblack.png" alt="MONTAPART" className="h-10 w-auto" />
             </Link>

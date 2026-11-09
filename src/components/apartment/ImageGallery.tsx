@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Keyboard, Zoom } from 'swiper/modules';
 import { ChevronLeft, ChevronRight, X, Expand } from 'lucide-react';
@@ -10,6 +11,7 @@ import { getImageVariants } from '../../lib/images';
 interface ImageGalleryProps { images: string[]; name: string }
 
 export default function ImageGallery({ images, name }: ImageGalleryProps) {
+  const reduceMotion = useReducedMotion();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
@@ -24,7 +26,7 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
   return (
     <>
       <div className="rounded-2xl overflow-hidden bg-sand-100 relative">
-        <Swiper modules={[A11y, Keyboard]} keyboard={{ enabled: lightboxIndex === null }}
+        <Swiper modules={[A11y, Keyboard]} keyboard={{ enabled: lightboxIndex === null }} speed={reduceMotion ? 0 : 300}
           a11y={{ containerMessage: `${name} képei`, itemRoleDescriptionMessage: 'kép' }}
           onSwiper={(swiper) => { swiperRef.current = swiper; }}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
@@ -34,7 +36,7 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
               <button type="button" tabIndex={activeIndex === i ? 0 : -1} className="relative block w-full h-full cursor-zoom-in" aria-label={`${i + 1}. kép nagyítása – ${name}`} onClick={() => setLightboxIndex(i)}>
                 {portraitSet.has(i) && <div className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-50" style={{ backgroundImage: `url(${getImageVariants(img, 160).src})` }} />}
                 {Math.abs(i - activeIndex) <= 1 && (
-                  <ResponsiveImage src={img} sizes="(min-width: 1280px) 736px, (min-width: 1024px) 60vw, 100vw" alt={`${name} – ${i + 1}. kép`} loading="eager" fetchPriority={i === activeIndex ? 'high' : 'low'} onLoad={(e) => handleImageLoad(i, e)} className={`relative w-full h-full ${portraitSet.has(i) ? 'object-contain' : 'object-cover'}`} />
+                  <ResponsiveImage src={img} sizes="(min-width: 1440px) 824px, (min-width: 1024px) calc(60vw - 42px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" alt={`${name} – ${i + 1}. kép`} loading="eager" fetchPriority={i === activeIndex ? 'high' : 'low'} onLoad={(e) => handleImageLoad(i, e)} className={`relative w-full h-full ${portraitSet.has(i) ? 'object-contain' : 'object-cover'}`} />
                 )}
               </button>
             </SwiperSlide>
@@ -60,6 +62,7 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
 }
 
 function GalleryLightbox({ images, name, initialIndex, onClose }: { images: string[]; name: string; initialIndex: number; onClose: () => void }) {
+  const reduceMotion = useReducedMotion();
   const swiperRef = useRef<SwiperType | null>(null);
   const [index, setIndex] = useState(initialIndex);
 
@@ -70,7 +73,7 @@ function GalleryLightbox({ images, name, initialIndex, onClose }: { images: stri
           <p className="text-sm truncate">{name}</p>
           <button type="button" data-dialog-focus aria-label="Galéria bezárása" onClick={onClose} className="lightbox-button shrink-0"><X aria-hidden="true" className="w-6 h-6" /></button>
         </div>
-        <Swiper modules={[A11y, Keyboard, Zoom]} keyboard zoom={{ maxRatio: 3 }} initialSlide={initialIndex}
+        <Swiper modules={[A11y, Keyboard, Zoom]} keyboard zoom={{ maxRatio: 3 }} initialSlide={initialIndex} speed={reduceMotion ? 0 : 300}
           onSwiper={(swiper) => { swiperRef.current = swiper; }} onSlideChange={(swiper) => setIndex(swiper.activeIndex)}
           className="w-full flex-1 min-h-0" a11y={{ containerMessage: `${name} nagyított képei` }}>
           {images.map((img, i) => (

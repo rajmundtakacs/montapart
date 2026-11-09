@@ -9,7 +9,7 @@ export default function Hotels() {
         title="Hotelek"
         subtitle="Szállodák és hotelek a montenegrói tengerparton."
       />
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+      <section className="max-w-site mx-auto px-4 sm:px-6 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {hotels.map((hotel, i) => (
             <div
@@ -19,11 +19,11 @@ export default function Hotels() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <ResponsiveImage
                   src={hotel.image}
-                  sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
                   maxWidth={1200}
                   alt={hotel.name}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
                 />
               </div>
               <div className="p-5">

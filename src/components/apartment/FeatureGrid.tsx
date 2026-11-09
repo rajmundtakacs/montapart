@@ -34,7 +34,7 @@ export default function FeatureGrid({ unit }: FeatureGridProps) {
         {features.map((f) => (
           <div
             key={f.label}
-            className="bg-white rounded-xl px-3 py-3.5 text-center border border-sand-100 hover:border-sea-200 transition-colors min-w-0"
+            className="bg-sea-100 rounded-xl px-3 py-3.5 text-center border border-sea-200/60 hover:border-sea-300 transition-colors min-w-0"
           >
             <f.icon className="w-5 h-5 mx-auto mb-2 text-sea-600 shrink-0" strokeWidth={1.5} />
             <div className="text-[11px] text-midnight/40 uppercase tracking-wider font-medium">{f.label}</div>

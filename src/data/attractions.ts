@@ -16,7 +16,7 @@ export const attractionCategories: AttractionCategory[] = [
     slug: 'strandok',
     name: 'Strandok',
     heroImage: '/images/strand.jpg',
-    description: 'Montenegró legszebb strandjai, kristálytiszta vízzel és lenyűgöző természeti környezetben.',
+    description: 'A montenegrói tengerpart legkedveltebb strandjai, kristálytiszta vízzel és lenyűgöző természeti környezetben.',
     items: [
       { name: 'Strand', image: '/images/strand2.jpg' },
       { name: 'Strand', image: '/images/strand3.jpg' },

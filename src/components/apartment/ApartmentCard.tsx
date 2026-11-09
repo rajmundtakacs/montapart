@@ -18,17 +18,17 @@ export default function ApartmentCard({ apartment }: ApartmentCardProps) {
     <div>
       <Link
         to={`/apartments/${apartment.slug}`}
-        className="group block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500"
+        className="group block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover motion-safe:hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
       >
         {/* Full card is the image - overlay text approach handles mixed aspect ratios better */}
         <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden">
           <ResponsiveImage
             src={apartment.thumbnail}
-            sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            sizes="(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
             maxWidth={800}
             alt={apartment.name}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
           />
           {/* Permanent gradient overlay for readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-midnight/35 via-45% to-transparent" />

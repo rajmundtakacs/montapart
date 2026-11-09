@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import HeroSection from '../components/ui/HeroSection';
 import ResponsiveImage from '../components/ui/ResponsiveImage';
 import { programs, programHeroImage } from '../data/programs';
@@ -14,7 +13,7 @@ export default function Programs() {
         overlay="dark"
       />
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <section className="max-w-site mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {programs.map((program) => (
             <div
@@ -23,11 +22,11 @@ export default function Programs() {
             >
               <ResponsiveImage
                 src={program.image}
-                sizes="(min-width: 1280px) 600px, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 1440px) 684px, (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
                 maxWidth={1200}
                 alt={program.name}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight/70 via-midnight/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
@@ -39,12 +38,8 @@ export default function Programs() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.2 }}
-          className="mt-12 bg-sea-50 rounded-2xl p-5 sm:p-8 text-center border border-sea-100"
+        <div
+          className="mt-12 bg-sea-100 rounded-2xl p-5 sm:p-8 text-center border border-sea-200/60"
         >
           <h3 className="font-display text-xl lg:text-2xl font-semibold text-midnight mb-2">
             Foglalás
@@ -58,7 +53,7 @@ export default function Programs() {
           >
             +36 30 648 2016
           </a>
-        </motion.div>
+        </div>
       </section>
     </>
   );

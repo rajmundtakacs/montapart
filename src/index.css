@@ -40,6 +40,8 @@
 }
 
 @theme {
+  --container-site: 90rem;
+
   /* Turquoise blues echo the original site's light, coastal palette. */
   --color-sea-50: #eef8fa;
   --color-sea-100: #d8ecef;

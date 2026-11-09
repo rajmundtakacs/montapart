@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { getApartmentBySlug } from '../data/apartments';
 import { contactInfo } from '../data/contact';
 import NotFound from './NotFound';
@@ -29,7 +28,7 @@ export default function ApartmentDetail() {
 
   return (
     <div className="pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-site mx-auto px-4 sm:px-6">
         {/* Breadcrumb */}
         <nav className="flex flex-wrap items-center gap-2 text-sm text-midnight/40 mb-6">
           <Link to="/apartments" className="hover:text-sea-600 transition-colors">
@@ -39,10 +38,7 @@ export default function ApartmentDetail() {
           <span className="text-midnight/70">{apartment.name}</span>
         </nav>
 
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
+        <div
           className="mb-10"
         >
           <h1 className="font-display text-3xl md:text-5xl font-semibold text-midnight mb-4">
@@ -51,7 +47,7 @@ export default function ApartmentDetail() {
           <p className="text-midnight/70 max-w-3xl leading-relaxed md:text-lg">
             {apartment.description}
           </p>
-        </motion.div>
+        </div>
 
         <div className="mb-6 lg:hidden">
           <UnitSwitcher units={apartment.units} activeUnitId={activeUnitId} onSwitch={setActiveUnitId} />
@@ -81,7 +77,7 @@ export default function ApartmentDetail() {
             <AmenityList amenities={activeUnit.amenities} />
 
             {/* CTA */}
-            <div className="bg-sea-50 rounded-xl p-5 border border-sea-100">
+            <div className="bg-sea-100 rounded-xl p-5 border border-sea-200/60">
               <h4 className="font-semibold text-midnight mb-2">Érdeklődés</h4>
               <p className="text-sm text-midnight/60 mb-4">
                 Foglaláshoz vagy kérdés esetén vegye fel velünk a kapcsolatot!

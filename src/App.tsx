@@ -6,6 +6,8 @@ import ApartmentDetail from './pages/ApartmentDetail';
 import Hotels from './pages/Hotels';
 import Programs from './pages/Programs';
 import Attractions from './pages/Attractions';
+import AttractionDetail from './pages/AttractionDetail';
+import Montenegro from './pages/Montenegro';
 import Transfer from './pages/Transfer';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/attractions" element={<Attractions />} />
+          <Route path="/attractions/:slug" element={<AttractionDetail />} />
+          <Route path="/montenegro" element={<Montenegro />} />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

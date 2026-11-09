@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import ResponsiveImage from './ResponsiveImage';
 
 interface HeroSectionProps {
@@ -60,24 +59,18 @@ export default function HeroSection({
         <div className="absolute inset-0 bg-gradient-to-t from-midnight/33 via-transparent to-midnight/10 pointer-events-none" />
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-10 sm:pt-36 sm:pb-16 w-full">
-        <motion.h1
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
+      <div className="relative z-10 max-w-site mx-auto px-4 sm:px-6 pt-28 pb-10 sm:pt-36 sm:pb-16 w-full">
+        <h1
           className={`font-display ${isHome ? 'text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] max-w-3xl lg:max-w-none lg:leading-[1.15] lg:text-center' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-3xl'} text-white font-semibold leading-tight drop-shadow-lg break-words`}
         >
           {title}
-        </motion.h1>
+        </h1>
         {subtitle && (
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.25, delay: 0.05 }}
+          <p
             className={`mt-4 text-base sm:text-lg md:text-xl text-white/95 max-w-xl font-normal drop-shadow-md ${isHome ? 'lg:mx-auto lg:text-center' : ''}`}
           >
             {subtitle}
-          </motion.p>
+          </p>
         )}
         {children}
       </div>

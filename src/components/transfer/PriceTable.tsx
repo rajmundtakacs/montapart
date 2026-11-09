@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion';
 import { ArrowLeftRight } from 'lucide-react';
 import { transferRoutes, taxiCapacity, minibusCapacity } from '../../data/transfers';
 
 export default function PriceTable() {
   return (
-    <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.2 }}>
+    <div>
       <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-sand-100">
         <table aria-describedby="transfer-direction-note" className="w-full table-fixed text-sm sm:text-base text-center">
           <caption className="sr-only">Repülőtéri transzfer árak euróban, úti cél és jármű szerint</caption>
@@ -34,6 +33,6 @@ export default function PriceTable() {
           </tbody>
         </table>
       </div>
-    </motion.div>
+    </div>
   );
 }

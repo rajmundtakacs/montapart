@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ResponsiveImage from '../components/ui/ResponsiveImage';
@@ -41,13 +40,9 @@ function EmphasizedText({ text, emphasis }: { text: string; emphasis: string }) 
 }
 
 export default function About() {
-  const reduceMotion = useReducedMotion();
   return (
     <div className="pt-26 md:pt-28 xl:pt-32 pb-16 sm:pb-20">
-      <motion.div
-        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.25 }}
+      <div
         className="max-w-5xl mx-auto px-4 sm:px-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8 md:gap-12 items-center">
@@ -108,7 +103,7 @@ export default function About() {
             Kapcsolatfelvétel <ArrowRight size={19} aria-hidden="true" />
           </Link>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

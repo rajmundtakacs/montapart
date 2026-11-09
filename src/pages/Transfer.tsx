@@ -11,11 +11,11 @@ export default function Transfer() {
         contentWidth="narrow"
         subtitle="Reptéri transzfer és taxi szolgáltatás minimum létszámkorlát nélkül kérhető az alábbi montenegrói városok és a podgoricai repülőtér között."
       >
-        <p id="transfer-direction-note" className="text-sm sm:text-base text-midnight/70">
+        <p id="transfer-direction-note" className="text-sm sm:text-base leading-relaxed text-midnight/70">
           Minden útvonal mindkét irányban kérhető.
         </p>
       </PageHeader>
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
         <PriceTable />
         <div className="mt-10 sm:mt-12 flex flex-col items-start gap-5">
           <p className="text-lg font-medium leading-relaxed text-midnight">

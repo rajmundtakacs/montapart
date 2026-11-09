@@ -28,7 +28,7 @@ export default function AmenityList({ amenities }: AmenityListProps) {
   if (amenities.length === 0) return null;
 
   return (
-    <div className="bg-white rounded-xl p-5 border border-sand-100">
+    <div className="bg-sea-100 rounded-xl p-5 border border-sea-200/60">
       <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/50 mb-4">
         Felszereltség
       </h4>
@@ -38,7 +38,7 @@ export default function AmenityList({ amenities }: AmenityListProps) {
           return (
             <span
               key={amenity}
-              className="inline-flex items-center gap-2 bg-sea-50 text-sea-800 px-4 py-2.5 rounded-full text-sm"
+              className="inline-flex items-center gap-2 bg-white/75 text-sea-800 px-4 py-2.5 rounded-full text-sm"
             >
               <Icon className="w-3.5 h-3.5 shrink-0" strokeWidth={1.5} />
               {amenity}
