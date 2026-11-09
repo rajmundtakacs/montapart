@@ -15,28 +15,21 @@ export type PlacePreview = Pick<AttractionPlace, 'slug' | 'name' | 'images' | 'd
   imagePosition?: string;
 };
 
-function excerpt(place: PlacePreview) {
-  const text = place.description.map(run => run.text).join('').replace(/^[^:]{1,65}:\s*/, '');
-  return text.length > 210 ? `${text.slice(0, 210).replace(/\s+\S*$/, '')}…` : text;
-}
-
 function PlaceCard({ place, detailLink }: { place: PlacePreview; detailLink: boolean }) {
-  const text = excerpt(place);
   const content = (
     <>
-      <div className="aspect-[4/3] overflow-hidden bg-sea-100 flex items-center justify-center">
+      <div className="aspect-[4/3] shrink-0 overflow-hidden bg-sea-100 flex items-center justify-center">
         {place.images[0] ? (
           <ResponsiveImage src={place.images[0]} alt="" maxWidth={800} loading="lazy"
             sizes="(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
             className={`w-full h-full object-cover ${place.imagePosition ?? ''} ${detailLink ? 'transition-transform duration-500 motion-safe:group-hover:scale-105' : ''}`} />
         ) : <MapPin size={48} strokeWidth={1} aria-hidden="true" className="text-sea-500" />}
       </div>
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="font-display text-[22px] leading-snug font-semibold text-midnight">{place.name}</h3>
-        {text && <p className="mt-3 mb-5 text-sm leading-relaxed text-midnight/70">{text}</p>}
-        {detailLink && text && (
-          <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-sea-700">
-            Felfedezem <ArrowRight size={17} aria-hidden="true" />
+      <div className="flex flex-1 items-center justify-between gap-4 p-5 sm:p-6">
+        <h3 className="min-w-0 font-display text-[22px] leading-snug font-semibold text-midnight">{place.name}</h3>
+        {detailLink && (
+          <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sea-50 text-sea-600 transition-colors group-hover:bg-sea-600 group-hover:text-white">
+            <ArrowRight size={19} />
           </span>
         )}
       </div>

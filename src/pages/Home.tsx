@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/ui/HeroSection';
 import ResponsiveImage from '../components/ui/ResponsiveImage';
+import ApartmentCard from '../components/apartment/ApartmentCard';
 import { apartments } from '../data/apartments';
 
 const categories = [
@@ -104,37 +105,12 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featured.map((apt) => (
-              <div
+            {featured.map(apt => (
+              <ApartmentCard
                 key={apt.slug}
-              >
-                <Link
-                  to={`/apartments/${apt.slug}`}
-                  className="group block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-500"
-                >
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-                    <ResponsiveImage
-                      src={apt.thumbnail}
-                      sizes="(min-width: 1440px) 330px, (min-width: 1024px) calc(25vw - 30px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
-                      maxWidth={800}
-                      alt={apt.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/15 via-40% to-transparent" />
-                    <div className="absolute bottom-5 left-5 right-5">
-                      <h3 className="font-display text-lg text-white font-semibold leading-snug">
-                        {apt.name}
-                      </h3>
-                      {apt.units[0]?.seaDistance && (
-                        <p className="text-white/80 text-xs font-medium mt-1.5">
-                          {apt.units[0].seaDistance} a tengertől
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              </div>
+                apartment={apt}
+                imageSizes="(min-width: 1440px) 330px, (min-width: 1024px) calc(25vw - 30px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
+              />
             ))}
           </div>
 

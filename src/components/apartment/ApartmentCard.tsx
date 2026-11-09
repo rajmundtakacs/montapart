@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom';
+import { ArrowRight, Users } from 'lucide-react';
 import ResponsiveImage from '../ui/ResponsiveImage';
 import type { Apartment } from '../../data/apartments';
 
 interface ApartmentCardProps {
   apartment: Apartment;
+  imageSizes?: string;
 }
 
-export default function ApartmentCard({ apartment }: ApartmentCardProps) {
+export default function ApartmentCard({
+  apartment,
+  imageSizes = '(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)',
+}: ApartmentCardProps) {
   const totalCapacity = apartment.units.reduce((sum, unit) => {
     const maximum = typeof unit.capacity === 'number'
       ? unit.capacity
@@ -15,54 +20,47 @@ export default function ApartmentCard({ apartment }: ApartmentCardProps) {
   }, 0);
 
   return (
-    <div>
-      <Link
-        to={`/apartments/${apartment.slug}`}
-        className="group block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover motion-safe:hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
-      >
-        {/* Full card is the image - overlay text approach handles mixed aspect ratios better */}
-        <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden">
-          <ResponsiveImage
-            src={apartment.thumbnail}
-            sizes="(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
-            maxWidth={800}
-            alt={apartment.name}
-            loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
-          />
-          {/* Permanent gradient overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-midnight/35 via-45% to-transparent" />
+    <Link
+      to={`/apartments/${apartment.slug}`}
+      className="group flex h-full flex-col rounded-2xl overflow-hidden bg-white shadow-card hover:shadow-card-hover motion-safe:hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
+    >
+      <div className="relative aspect-[4/3] shrink-0 overflow-hidden bg-sea-100">
+        <ResponsiveImage
+          src={apartment.thumbnail}
+          sizes={imageSizes}
+          maxWidth={800}
+          alt={apartment.name}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
+        />
+        {/* Badges top-left */}
+        <div className="absolute top-3 left-3 flex gap-2">
+          {apartment.units[0]?.seaDistance && (
+            <span className="bg-white/90 backdrop-blur-sm text-sea-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+              {apartment.units[0].seaDistance}
+            </span>
+          )}
+        </div>
 
-          {/* Badges top-left */}
-          <div className="absolute top-3 left-3 flex gap-2">
-            {apartment.units[0]?.seaDistance && (
-              <span className="bg-white/90 backdrop-blur-sm text-sea-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
-                {apartment.units[0].seaDistance}
-              </span>
-            )}
-          </div>
-
-          {/* Content pinned to bottom */}
-          <div className="absolute bottom-0 left-0 right-0 p-5">
-            <h3 className="font-display text-xl font-semibold text-white leading-snug drop-shadow-md">
-              {apartment.name}
-            </h3>
-            <p className="mt-1.5 text-sm text-white/80 line-clamp-2 leading-relaxed">
-              {apartment.description}
-            </p>
-            <div className="mt-3 flex items-center gap-3 text-white/75 text-xs font-medium">
-              <span className="flex items-center gap-1">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                max. {totalCapacity} fő
-              </span>
-              <span>·</span>
-              <span>{apartment.units.length} apartman</span>
-            </div>
+      </div>
+      <div className="flex flex-1 items-center justify-between gap-4 p-5 sm:p-6">
+        <div className="min-w-0">
+          <h3 className="font-display text-[22px] font-semibold text-midnight leading-snug">
+            {apartment.name}
+          </h3>
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-midnight/65 text-sm font-medium">
+            <span className="flex items-center gap-1">
+              <Users size={16} aria-hidden="true" className="shrink-0" />
+              max. {totalCapacity} fő
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>{apartment.units.length} apartman</span>
           </div>
         </div>
-      </Link>
-    </div>
+        <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sea-50 text-sea-600 transition-colors group-hover:bg-sea-600 group-hover:text-white">
+          <ArrowRight size={19} />
+        </span>
+      </div>
+    </Link>
   );
 }
