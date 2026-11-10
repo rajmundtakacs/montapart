@@ -43,7 +43,7 @@ export default function ApartmentCard({
         </div>
 
       </div>
-      <div className="flex flex-1 items-stretch justify-between gap-4 p-5 sm:p-6">
+      <div className="relative flex flex-1 p-5 pr-18 sm:p-6 sm:pr-19">
         <div className="flex min-w-0 flex-1 flex-col">
           <h3 className="font-display text-[22px] font-semibold text-midnight leading-snug">
             {apartment.name}
@@ -57,7 +57,7 @@ export default function ApartmentCard({
             <span>{apartment.units.length} apartman</span>
           </div>
         </div>
-        <span aria-hidden="true" className="flex h-9 w-9 shrink-0 self-center items-center justify-center rounded-full bg-sea-50 text-sea-600 transition-colors group-hover:bg-sea-600 group-hover:text-white">
+        <span aria-hidden="true" className="absolute right-5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-sea-50 text-sea-600 transition-colors group-hover:bg-sea-600 group-hover:text-white sm:right-6">
           <ArrowRight size={19} />
         </span>
       </div>

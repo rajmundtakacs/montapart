@@ -16,7 +16,7 @@ export default function Attractions() {
       <PageHeader
         title="Látnivalók"
         actions={
-          <nav aria-label="Látnivalók kategóriái">
+          <nav aria-label="Látnivalók kategóriái" className="lg:translate-y-0.5">
             <ul className="flex flex-wrap gap-2 sm:gap-3">
               {categories.map(category => (
                 <li key={category.id}>
