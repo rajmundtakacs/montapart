@@ -26,8 +26,7 @@ export const attractionPlaces: AttractionPlace[] = [
     "name": "Budva",
     "category": "varosok",
     "images": [
-      "/images/attractions/varosok/budva.jpg",
-      "/images/attractions/varosok/budva-2.jpg"
+      "/images/attractions/varosok/budva.jpg"
     ],
     "description": [
       {
@@ -869,7 +868,27 @@ export const attractionPlaces: AttractionPlace[] = [
         "text": " megtekintése bő negyvenperces, izgalmasabb túrát igényel. A várról a legelső írásos feljegyzés 1550-ből származik, bár leletek bizonyítják, hogy már a 13. században is állt a vár; sőt, már korábban is lakott volt, hisz' a Római Birodalom idejéről is találtak leleteket a domb oldalában."
       }
     ],
-    "details": []
+    "details": [
+      {
+        "label": "Megközelítés",
+        "paragraphs": [
+          [{ "text": "Petrovacból Tabija 12 km (🚗+🚶), Nehaj erőd 13,5 km (🚗+🚶)." }],
+          [{ "text": "Sutomoréból Tabija 800 m (🚶), Nehaj erőd 3 km (🚗+🚶)." }]
+        ]
+      },
+      {
+        "label": "Tipp a látogatáshoz",
+        "paragraphs": [
+          [{ "text": "Egyik látnivalóhoz sem vezet autóút végig, így gyaloglással számolni kell. Ezért érdemes túracipőben nekivágni a felfedezésnek – főként Nehaj esetében." }]
+        ]
+      },
+      {
+        "label": "Amire érdemes figyelni",
+        "paragraphs": [
+          [{ "text": "Főként Nehaj meghódításához kell némi edzettség a meredeken emelkedő hegyoldalban." }]
+        ]
+      }
+    ]
   },
   {
     "slug": "lovcen-mauzoleum",

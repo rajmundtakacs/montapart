@@ -43,12 +43,12 @@ export default function ApartmentCard({
         </div>
 
       </div>
-      <div className="flex flex-1 items-center justify-between gap-4 p-5 sm:p-6">
-        <div className="min-w-0">
+      <div className="flex flex-1 items-stretch justify-between gap-4 p-5 sm:p-6">
+        <div className="flex min-w-0 flex-1 flex-col">
           <h3 className="font-display text-[22px] font-semibold text-midnight leading-snug">
             {apartment.name}
           </h3>
-          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-midnight/65 text-sm font-medium">
+          <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-3 text-midnight/65 text-sm font-medium">
             <span className="flex items-center gap-1">
               <Users size={16} aria-hidden="true" className="shrink-0" />
               max. {totalCapacity} fő
@@ -57,7 +57,7 @@ export default function ApartmentCard({
             <span>{apartment.units.length} apartman</span>
           </div>
         </div>
-        <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sea-50 text-sea-600 transition-colors group-hover:bg-sea-600 group-hover:text-white">
+        <span aria-hidden="true" className="flex h-9 w-9 shrink-0 self-center items-center justify-center rounded-full bg-sea-50 text-sea-600 transition-colors group-hover:bg-sea-600 group-hover:text-white">
           <ArrowRight size={19} />
         </span>
       </div>

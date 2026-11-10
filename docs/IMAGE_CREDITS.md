@@ -24,6 +24,12 @@ The previous `main3.png` asset is retained. Its beach could not be independently
 - Sveti Stefan currently illustrates the new page and its home card provisionally; the client’s final card-image choice is pending.
 - Private Drive file IDs and original filename mappings are recorded in `docs/montapart-photos-20261109.local` and are not published.
 
+### Client photo correction — 2026-11-10
+
+- The client replaced the incorrectly labelled Kotor photo with a new Kotor photograph. `public/images/attractions/varosok/kotor.jpg` now uses that corrected source for both the town card and detail page.
+- The previous photograph actually shows Budva. It is preserved as `public/images/attractions/varosok/budva-3.jpg`, matching the client’s renamed Drive source, but is not displayed. Budva’s detail page uses only the original ballerina photograph, consistent with the other town pages.
+- Original JPEGs are preserved; the existing pipeline produces the responsive WebP variants.
+
 ## Provisional beach stock photographs
 
 Downloaded on 2026-11-09. These three photographs replace the unrelated beach stock imagery in the Látnivalók beach cards. The cards are provisional; detailed client-supplied beach copy is still pending.
