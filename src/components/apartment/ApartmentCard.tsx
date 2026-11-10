@@ -6,12 +6,15 @@ import type { Apartment } from '../../data/apartments';
 interface ApartmentCardProps {
   apartment: Apartment;
   imageSizes?: string;
+  stackedTitle?: boolean;
 }
 
 export default function ApartmentCard({
   apartment,
+  stackedTitle = false,
   imageSizes = '(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)',
 }: ApartmentCardProps) {
+  const titleBreak = stackedTitle ? apartment.name.lastIndexOf(' ') : -1;
   const totalCapacity = apartment.units.reduce((sum, unit) => {
     const maximum = typeof unit.capacity === 'number'
       ? unit.capacity
@@ -46,7 +49,12 @@ export default function ApartmentCard({
       <div className="relative flex flex-1 p-5 pr-18 sm:p-6 sm:pr-19">
         <div className="flex min-w-0 flex-1 flex-col">
           <h3 className="font-display text-[22px] font-semibold text-midnight leading-snug">
-            {apartment.name}
+            {titleBreak > 0 ? (
+              <>
+                {apartment.name.slice(0, titleBreak)}{' '}
+                <span className="block">{apartment.name.slice(titleBreak + 1)}</span>
+              </>
+            ) : apartment.name}
           </h3>
           <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-3 text-midnight/65 text-sm font-medium">
             <span className="flex items-center gap-1">

@@ -109,6 +109,7 @@ export default function Home() {
               <ApartmentCard
                 key={apt.slug}
                 apartment={apt}
+                stackedTitle
                 imageSizes="(min-width: 1440px) 330px, (min-width: 1024px) calc(25vw - 30px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
               />
             ))}
