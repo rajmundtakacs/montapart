@@ -5,7 +5,7 @@ import ApartmentCard from '../components/apartment/ApartmentCard';
 import { apartments } from '../data/apartments';
 
 const categories = [
-  { to: '/montenegro', label: 'Miért éppen Montenegró?', image: '/images/index/montenegro-client.jpg' },
+  { to: '/montenegro', label: 'Miért éppen Montenegró?', image: '/images/index/montenegro-client-crop.jpg' },
   { to: '/apartments', label: 'Apartmanok', image: '/images/apartmanok/rusztikus/images/ap3/rusztikus_9.JPG' },
   { to: '/hotels', label: 'Hotelek', image: '/images/hotelek/sutomore-client.jpg' },
   { to: '/attractions', label: 'Látnivalók', image: '/images/attractions/nevezetessegek/san-giovanni-erod.jpg' },
@@ -54,10 +54,10 @@ export default function Home() {
                 to={cat.to}
                 className="group flex h-full flex-col bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover motion-safe:hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
               >
-                <div className="relative h-44 sm:h-56 md:h-64 shrink-0 overflow-hidden">
+                <div className="relative h-44 sm:h-56 md:h-64 xl:h-auto xl:aspect-[16/10] shrink-0 overflow-hidden">
                   <ResponsiveImage
                     src={cat.image}
-                    sizes="(min-width: 1440px) 330px, (min-width: 1280px) calc(25vw - 30px), (min-width: 768px) calc(50vw - 36px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+                    sizes="(min-width: 1536px) 354px, (min-width: 1280px) calc(25vw - 30px), (min-width: 768px) calc(50vw - 36px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
                     maxWidth={1200}
                     loading="lazy"
                     alt={cat.label}
@@ -110,7 +110,7 @@ export default function Home() {
                 key={apt.slug}
                 apartment={apt}
                 stackedTitle
-                imageSizes="(min-width: 1440px) 330px, (min-width: 1024px) calc(25vw - 30px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
+                imageSizes="(min-width: 1536px) 354px, (min-width: 1024px) calc(25vw - 30px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
               />
             ))}
           </div>

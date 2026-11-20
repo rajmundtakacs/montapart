@@ -13,7 +13,7 @@ export default function Programs() {
       <div className="max-w-site mx-auto px-4 sm:px-6 pb-16 sm:pb-20">
         <section aria-labelledby="boat-tour" className="grid lg:grid-cols-2 items-start gap-7 lg:gap-12">
           <ResponsiveImage src={boatTour.image} alt="Hajókirándulás a Skadar-tavon"
-            sizes="(min-width: 1440px) 672px, (min-width: 1024px) calc(50vw - 48px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+            sizes="(min-width: 1536px) 720px, (min-width: 1024px) calc(50vw - 48px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
             loading="eager" className="w-full aspect-[4/3] object-cover rounded-2xl" />
           <div>
             <h2 id="boat-tour" className="mb-5 font-display text-2xl sm:text-3xl font-semibold text-midnight">{boatTour.title}</h2>

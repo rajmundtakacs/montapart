@@ -28,8 +28,8 @@ export default function Montenegro() {
             {content.intro.map((paragraph, index) => <p key={index} className={index === 0 ? 'text-lg' : undefined}><RichText runs={paragraph} /></p>)}
           </div>
           <figure className="order-first lg:order-last">
-            <ResponsiveImage src="/images/index/montenegro-client.jpg" alt="Montenegrói tengerpart, öböllel és parti településsel"
-              sizes="(min-width: 1440px) 640px, (min-width: 1024px) calc(47.62vw - 46px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" loading="eager"
+            <ResponsiveImage src="/images/index/montenegro-client-crop.jpg" alt="Montenegrói tengerpart, öböllel és parti településsel"
+              sizes="(min-width: 1536px) 686px, (min-width: 1024px) calc(47.62vw - 46px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" loading="eager"
               className="w-full aspect-[4/3] object-cover rounded-2xl" />
           </figure>
         </section>

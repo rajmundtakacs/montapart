@@ -16,7 +16,7 @@ export default function Hotels() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   {hotel.image ? <ResponsiveImage
                     src={hotel.image}
-                    sizes="(min-width: 1440px) 330px, (min-width: 1280px) calc(25vw - 30px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
+                    sizes="(min-width: 1536px) 354px, (min-width: 1280px) calc(25vw - 30px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
                     maxWidth={1200}
                     alt={hotel.name}
                     loading="lazy"

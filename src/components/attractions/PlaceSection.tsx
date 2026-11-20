@@ -21,7 +21,7 @@ function PlaceCard({ place, detailLink }: { place: PlacePreview; detailLink: boo
       <div className="aspect-[4/3] shrink-0 overflow-hidden bg-sea-100 flex items-center justify-center">
         {place.images[0] ? (
           <ResponsiveImage src={place.images[0]} alt="" maxWidth={800} loading="lazy"
-            sizes="(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
+            sizes="(min-width: 1536px) 480px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
             className={`w-full h-full object-cover ${place.imagePosition ?? ''} ${detailLink ? 'transition-transform duration-500 motion-safe:group-hover:scale-105' : ''}`} />
         ) : <MapPin size={48} strokeWidth={1} aria-hidden="true" className="text-sea-500" />}
       </div>

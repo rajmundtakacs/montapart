@@ -53,7 +53,7 @@ export default function AttractionDetail() {
           {place.images.length > 0 && (
             <div>
               <ResponsiveImage src={place.images[imageIndex]} alt={`${place.name}${place.images.length > 1 ? ` – ${imageIndex + 1}. kép` : ''}`}
-                sizes="(min-width: 1440px) 672px, (min-width: 1024px) calc(50vw - 48px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" loading="eager"
+                sizes="(min-width: 1536px) 720px, (min-width: 1024px) calc(50vw - 48px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" loading="eager"
                 className="w-full h-auto max-h-[600px] object-contain rounded-2xl bg-sea-100" />
               {imageIndex === 0 && place.photoCredit && <ImageCredit credit={place.photoCredit} />}
               {place.images.length > 1 && (

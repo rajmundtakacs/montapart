@@ -19,7 +19,7 @@ export default function ImageGallery({
   images,
   name,
   allowFullscreen = true,
-  imageSizes = '(min-width: 1440px) 824px, (min-width: 1024px) calc(60vw - 42px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)',
+  imageSizes = '(min-width: 1536px) 880px, (min-width: 1024px) calc(60vw - 42px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)',
 }: ImageGalleryProps) {
   const reduceMotion = useReducedMotion();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);

@@ -36,7 +36,7 @@ export default function HotelDetail() {
             images={images}
             name={`${hotel.name} – ${hotel.stars} csillagos hotel`}
             allowFullscreen={false}
-            imageSizes="(min-width: 1440px) 672px, (min-width: 1024px) calc(50vw - 48px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+            imageSizes="(min-width: 1536px) 720px, (min-width: 1024px) calc(50vw - 48px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
           />
         </div>}
       </div>

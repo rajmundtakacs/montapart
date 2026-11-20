@@ -12,7 +12,7 @@ interface ApartmentCardProps {
 export default function ApartmentCard({
   apartment,
   stackedTitle = false,
-  imageSizes = '(min-width: 1440px) 448px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)',
+  imageSizes = '(min-width: 1536px) 480px, (min-width: 1024px) calc(33.333vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)',
 }: ApartmentCardProps) {
   const titleBreak = stackedTitle ? apartment.name.lastIndexOf(' ') : -1;
   const totalCapacity = apartment.units.reduce((sum, unit) => {
