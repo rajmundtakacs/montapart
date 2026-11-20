@@ -38,7 +38,7 @@ export default function ApartmentDetail() {
         <div
           className="mb-10 max-w-4xl mx-auto text-left"
         >
-          <h1 className="font-display text-3xl md:text-5xl font-semibold text-midnight mb-4 text-center">
+          <h1 className="font-display text-3xl md:text-5xl font-semibold text-midnight mb-6 md:mb-8 text-center">
             {apartment.name}
           </h1>
           <div className="text-midnight/70 leading-relaxed md:text-lg space-y-4">
