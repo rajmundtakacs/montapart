@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Apartments from './pages/Apartments';
 import ApartmentDetail from './pages/ApartmentDetail';
 import Hotels from './pages/Hotels';
+import HotelDetail from './pages/HotelDetail';
 import Programs from './pages/Programs';
 import Attractions from './pages/Attractions';
 import AttractionDetail from './pages/AttractionDetail';
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/apartments" element={<Apartments />} />
           <Route path="/apartments/:slug" element={<ApartmentDetail />} />
           <Route path="/hotels" element={<Hotels />} />
+          <Route path="/hotels/:slug" element={<HotelDetail />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/attractions" element={<Attractions />} />
           <Route path="/attractions/:slug" element={<AttractionDetail />} />

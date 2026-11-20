@@ -59,10 +59,10 @@ export default function ApartmentCard({
           <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-3 text-midnight/65 text-sm font-medium">
             <span className="flex items-center gap-1">
               <Users size={16} aria-hidden="true" className="shrink-0" />
-              max. {totalCapacity} fő
+              {apartment.capacityLabel ?? `max. ${totalCapacity} fő`}
             </span>
             <span aria-hidden="true">·</span>
-            <span>{apartment.units.length} apartman</span>
+            <span>{apartment.unitCountLabel ?? `${apartment.units.length} apartman`}</span>
           </div>
         </div>
         <span aria-hidden="true" className="absolute right-5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-sea-50 text-sea-600 transition-colors group-hover:bg-sea-600 group-hover:text-white sm:right-6">

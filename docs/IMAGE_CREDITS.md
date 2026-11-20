@@ -1,5 +1,16 @@
 # Image credits
 
+## Client material update — 2026-11-19, local preview
+
+- The client-selected `public/images/index/montenegro-client.jpg` replaces the provisional Sveti Stefan image on the Montenegro page and its home card. The former photograph remains available elsewhere.
+- Client-provided beach photos now illustrate ten of the eleven new beach entries (`*-client.jpg` under `attractions/strandok/`). No photo has been assigned to Sveti Nikola/Hawaii without an identified source; its description remains available. The earlier beach stock files are retained but are no longer the active beach cards.
+- Client photos illustrate the new Ostrog and Ulcinj entries and the Beška/Skadar boat tour. The existing Lovćen exterior photo and its CC BY-SA credit remain in use alongside the new client description.
+- The Canj and Sutomore hotel covers, and the home Hotelek card, now use the corresponding client-supplied hotel photographs. Their cards also open galleries of 13 and 10 selected client photographs under `public/images/hotelek/canj/` and `public/images/hotelek/sutomore/`, including the existing covers; originals were copied into the matching shared project folders. The other hotel cards still retain their previous provisional photographs.
+- Selected client apartment photos are used for Villa Vita, PetroVibes, Zöld, Panoráma, Adria, the private-beach studios and the pool/private-beach house. The pool house has separate galleries for four accommodation types and shared garden/coast images. Adria currently uses shared exterior photographs; the studios represent an accommodation category rather than a confirmed inventory count. The Aranypart galleries now use the client-supplied lower/upper floor photographs, matched to the two units.
+- External source originals are preserved; selected originals have been copied into the corresponding shared project folders. JPEG and HEIC conversion/resizing is technical image processing, with no image generation or upscaling. The site serves responsive WebP derivatives through the existing pipeline. The Perazića Do card aligns the panorama to the left as requested in the source filename.
+- Private source IDs, selected image order, shared-copy IDs and web paths are recorded in the ignored `docs/montapart-*-20261119.local` manifests. These are client-supplied assets for this project, not newly acquired stock licenses.
+- This section describes local work; no Netlify publication took place in this update.
+
 ## Home hero: open sea near Budva
 
 - Local assets: `public/images/index/hero-budva-open.webp` and `public/images/index/hero-budva-open-mobile.webp`.
@@ -73,3 +84,18 @@ The additional client-supplied photograph is retained as `public/images/attracti
 - Downloaded the existing 1280 × 853 thumbnail: `https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Njegos_mausoleum_frontside.jpg/1280px-Njegos_mausoleum_frontside.jpg`.
 - The Lovćen card links to its own photo page, where the author/source and license links and modification notice appear below the photograph; they are not repeated on the list card. The existing responsive pipeline creates resized WebP copies; the card displays a centered 4:3 crop via CSS. No generative changes or upscaling. The downloaded photograph is otherwise unchanged.
 - The earlier client-supplied interior photograph is retained separately for potential later use. No placeholder description was added. The card opens a photo page with the title and credit, pending the client description.
+
+
+## Additional client-supplied Sárga photographs — 2026-11-19
+
+- Nine photographs supplied through the client’s shared Sárga folders: four garden views under `public/images/apartmanok/sarga/kert/` and five matched Apartment 1 interiors under `public/images/apartmanok/sarga/ap1-friss/`. The garden views are shared across the two existing galleries. Originals were copied into the corresponding common project folders.
+- JPEG conversion/resizing and responsive WebP variants only; no generated imagery. Source-to-copy-to-web mapping is retained in private local manifests.
+- A further 29 selected client photographs for the Sárga studios, Utjeha and Barna are prepared outside the public directory, pending data clarification and unit pairing. They are not published website assets.
+
+
+## Aranypart and Petrovac client photographs — 2026-11-19
+
+- Fourteen photographs supplied in the client’s explicitly separated lower/upper floor folders are used under `public/images/apartmanok/aranypart/also-szint/` (6 photos) and `public/images/apartmanok/aranypart/felso-szint/` (8 photos). They replace the earlier provisional gallery pairing; the cover uses the lower-floor living room.
+- Eleven client-supplied photographs under `public/images/apartmanok/petrovac/friss/` replace the Petrovac gallery and cover. The cover shows the actual orange apartment building.
+- Selected originals were copied into the corresponding common project folders. HEIC/HEIF conversion, orientation correction, resizing and responsive WebP derivatives only; no generated imagery or enlargement. Private manifests retain source/copy/web mapping.
+- The newly shared Villa Vita folder contains 57 byte-identical originals already processed from the common folder; it does not add new website photographs or duplicate common-folder copies.

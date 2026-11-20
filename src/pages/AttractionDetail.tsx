@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { attractionPlaces } from '../data/attractionDetails';
+import { beachPreviews } from '../data/beaches';
 import type { TextRun } from '../data/richText';
 import ResponsiveImage from '../components/ui/ResponsiveImage';
 import ImageCredit from '../components/ui/ImageCredit';
@@ -17,7 +18,7 @@ function withoutRepeatedLabel(runs: TextRun[], label: string) {
 function introduction(runs: TextRun[], explicitTitle?: string) {
   const text = runs.map(run => run.text).join('');
   const prefix = explicitTitle && text.startsWith(explicitTitle)
-    ? explicitTitle
+    ? explicitTitle + (text.slice(explicitTitle.length).startsWith(':') ? ':' : '')
     : text.match(/^[^:]{1,100}:/)?.[0] ?? '';
   let remaining = prefix.length;
   const paragraphs: TextRun[][] = [[]];
@@ -34,7 +35,7 @@ function introduction(runs: TextRun[], explicitTitle?: string) {
 
 export default function AttractionDetail() {
   const { slug } = useParams();
-  const place = attractionPlaces.find(item => item.slug === slug);
+  const place = [...attractionPlaces, ...beachPreviews].find(item => item.slug === slug);
   const [selectedImage, setSelectedImage] = useState(0);
   if (!place) return <NotFound />;
   const imageIndex = Math.min(selectedImage, Math.max(0, place.images.length - 1));

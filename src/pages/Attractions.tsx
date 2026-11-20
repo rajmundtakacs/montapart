@@ -40,7 +40,7 @@ export default function Attractions() {
           places={attractionPlaces.filter(place => place.category === 'nevezetessegek')} />
         <PlaceSection id="strandok" title="Strandok"
           description="A montenegrói tengerpart legkedveltebb strandjai, kristálytiszta vízzel és lenyűgöző természeti környezetben."
-          places={beachPreviews} detailLinks={false} />
+          places={beachPreviews} />
       </section>
     </>
   );

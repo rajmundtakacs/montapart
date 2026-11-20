@@ -8,7 +8,7 @@ interface FeatureGridProps {
 export default function FeatureGrid({ unit }: FeatureGridProps) {
   const hasNoParking = unit.parking?.trim().toLowerCase() === 'nem';
   const notes = [
-    ...(!unit.hasKitchen ? ['Az apartmanhoz nem tartozik saját konyha.'] : []),
+    ...(unit.hasKitchen === false ? ['Az apartmanhoz nem tartozik saját konyha.'] : []),
     ...(hasNoParking ? ['A szálláshoz nem tartozik parkoló.'] : []),
   ];
   const features = [

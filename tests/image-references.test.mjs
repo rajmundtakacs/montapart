@@ -2,10 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { access } from 'node:fs/promises';
 import { apartments } from '../src/data/apartments.ts';
+import { hotels } from '../src/data/hotels.ts';
 import { getImageVariants } from '../src/lib/images.ts';
 
-test('all published apartment photos resolve to real optimized files, including legacy JPG case mismatches', async () => {
-  const paths = apartments.flatMap(apartment => [apartment.thumbnail, ...apartment.units.flatMap(unit => unit.images)]);
+test('all published accommodation photos resolve to real optimized files, including legacy JPG case mismatches', async () => {
+  const paths = [
+    ...apartments.flatMap(apartment => [apartment.thumbnail, ...apartment.units.flatMap(unit => unit.images)]),
+    ...hotels.flatMap(hotel => [hotel.image, ...(hotel.images ?? [])]),
+  ];
   for (const path of paths) {
     const image = getImageVariants(path);
     assert.match(image.src, /^\/images\/optimized\//, path);

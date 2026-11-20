@@ -1,4 +1,5 @@
 import type { TextRun } from './richText';
+import { clientAttractionUpdates } from './clientAttractionUpdates.ts';
 
 export interface PhotoCredit {
   author: string;
@@ -11,8 +12,9 @@ export interface PhotoCredit {
 export interface AttractionPlace {
   slug: string;
   name: string;
-  category: 'varosok' | 'nevezetessegek';
+  category: 'varosok' | 'nevezetessegek' | 'strandok';
   images: string[];
+  imagePosition?: string;
   photoCredit?: PhotoCredit;
   description: TextRun[];
   descriptionTitle?: string;
@@ -20,7 +22,7 @@ export interface AttractionPlace {
 }
 
 // Ági's shared Drive copy and named photos, retrieved 2026-11-09.
-export const attractionPlaces: AttractionPlace[] = [
+const originalAttractionPlaces: AttractionPlace[] = [
   {
     "slug": "budva",
     "name": "Budva",
@@ -905,4 +907,9 @@ export const attractionPlaces: AttractionPlace[] = [
     "description": [],
     "details": []
   }
+];
+
+export const attractionPlaces: AttractionPlace[] = [
+  ...originalAttractionPlaces.filter(place => !clientAttractionUpdates.some(update => update.slug === place.slug)),
+  ...clientAttractionUpdates,
 ];

@@ -76,6 +76,12 @@
   --font-body: "Montserrat", system-ui, sans-serif;
 }
 
+@layer base {
+  :where(a[href], button, summary, [role="button"]):not(:disabled):not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;

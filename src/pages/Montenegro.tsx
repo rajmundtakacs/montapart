@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ResponsiveImage from '../components/ui/ResponsiveImage';
 import RichText from '../components/ui/RichText';
 import { montenegroContent } from '../data/montenegro';
+import { montenegroFaq } from '../data/faq';
 
 const reasonPresentation = [
   { title: 'Könnyen elérhető', icon: Plane },
@@ -27,10 +28,9 @@ export default function Montenegro() {
             {content.intro.map((paragraph, index) => <p key={index} className={index === 0 ? 'text-lg' : undefined}><RichText runs={paragraph} /></p>)}
           </div>
           <figure className="order-first lg:order-last">
-            <ResponsiveImage src="/images/attractions/varosok/sveti-stefan.jpg" alt="Sveti Stefan a montenegrói tengerparton"
+            <ResponsiveImage src="/images/index/montenegro-client.jpg" alt="Montenegrói tengerpart, öböllel és parti településsel"
               sizes="(min-width: 1440px) 640px, (min-width: 1024px) calc(47.62vw - 46px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" loading="eager"
               className="w-full aspect-[4/3] object-cover rounded-2xl" />
-            <figcaption className="mt-2 text-sm text-midnight/60">Sveti Stefan</figcaption>
           </figure>
         </section>
 
@@ -74,6 +74,21 @@ export default function Montenegro() {
                     </ol>
                   )}
                 </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="montenegro-faq" className="mt-12 sm:mt-16">
+          <h2 id="montenegro-faq" className="mb-6 font-display text-2xl sm:text-3xl font-semibold text-midnight">Gyakori kérdések</h2>
+          <div className="divide-y divide-sea-200 rounded-3xl bg-white px-5 sm:px-8 shadow-card">
+            {montenegroFaq.map(item => (
+              <details key={item.question} className="group py-1">
+                <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-5 font-semibold text-sea-800 [&::-webkit-details-marker]:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea-700">
+                  {item.question}
+                  <ChevronDown size={20} aria-hidden="true" className="shrink-0 transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="max-w-4xl pb-6 leading-relaxed text-midnight/75">{item.answer}</p>
               </details>
             ))}
           </div>

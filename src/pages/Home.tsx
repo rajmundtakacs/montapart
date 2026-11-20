@@ -5,9 +5,9 @@ import ApartmentCard from '../components/apartment/ApartmentCard';
 import { apartments } from '../data/apartments';
 
 const categories = [
-  { to: '/montenegro', label: 'Miért éppen Montenegró?', image: '/images/attractions/varosok/sveti-stefan.jpg' },
+  { to: '/montenegro', label: 'Miért éppen Montenegró?', image: '/images/index/montenegro-client.jpg' },
   { to: '/apartments', label: 'Apartmanok', image: '/images/apartmanok/rusztikus/images/ap3/rusztikus_9.JPG' },
-  { to: '/hotels', label: 'Hotelek', image: '/images/index/hotelek-budva.jpg' },
+  { to: '/hotels', label: 'Hotelek', image: '/images/hotelek/sutomore-client.jpg' },
   { to: '/attractions', label: 'Látnivalók', image: '/images/attractions/nevezetessegek/san-giovanni-erod.jpg' },
 ];
 

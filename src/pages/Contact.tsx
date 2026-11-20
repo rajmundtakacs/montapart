@@ -1,11 +1,11 @@
 import ResponsiveImage from '../components/ui/ResponsiveImage';
-import { contactInfo } from '../data/contact';
+import { contactInfo, contactLinks } from '../data/contact';
 
 const channels = [
-  { name: 'Messenger', icon: contactInfo.messengerIcon },
-  { name: 'Viber', icon: contactInfo.viberIcon },
-  { name: 'WhatsApp', icon: contactInfo.whatsappIcon },
-  { name: 'Telegram', icon: contactInfo.telegramIcon },
+  { name: 'Messenger', icon: contactInfo.messengerIcon, href: contactLinks.messenger },
+  { name: 'Viber', icon: contactInfo.viberIcon, href: contactLinks.viber },
+  { name: 'WhatsApp', icon: contactInfo.whatsappIcon, href: contactLinks.whatsapp },
+  { name: 'Telegram', icon: contactInfo.telegramIcon, href: contactLinks.telegram },
 ];
 
 export default function Contact() {
@@ -44,7 +44,7 @@ export default function Contact() {
             </a>
 
             <a
-              href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
+              href={contactLinks.phone}
               className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 text-center rounded-xl hover:bg-sea-50 transition-colors group flex-1"
             >
               <div className="w-14 h-14 bg-sea-50 rounded-full flex items-center justify-center text-sea-600 flex-shrink-0">
@@ -60,21 +60,21 @@ export default function Contact() {
           </div>
 
           {/* Messaging channels */}
-          <div
-            className="bg-white rounded-2xl p-4 sm:p-6 shadow-card border border-sand-100"
-          >
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-card border border-sand-100">
             <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-midnight/40 mb-6 text-center">
               Üzenetküldés
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {channels.map((ch) => (
-                <button
-                  key={ch.name}
-                  className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200"
+              {channels.map((channel) => (
+                <a
+                  key={channel.name}
+                  href={channel.href}
+                  aria-label={`${channel.name}: ${contactInfo.phone}`}
+                  className="flex flex-col items-center gap-3 p-3 sm:p-4 min-w-0 text-center rounded-xl hover:bg-sea-50 transition-colors border border-sand-100 hover:border-sea-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea-700"
                 >
-                  <ResponsiveImage src={ch.icon} sizes="40px" maxWidth={160} alt={ch.name} className="w-10 h-10 object-contain" />
-                  <span className="text-sm font-medium text-midnight/70">{ch.name}</span>
-                </button>
+                  <ResponsiveImage src={channel.icon} sizes="40px" maxWidth={160} alt="" className="w-10 h-10 object-contain" />
+                  <span className="text-sm font-medium text-midnight/70">{channel.name}</span>
+                </a>
               ))}
             </div>
           </div>

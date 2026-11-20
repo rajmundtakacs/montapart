@@ -1,11 +1,17 @@
+import type { TextRun } from './richText';
+import { additionalApartments, apartmentCopyUpdates, apartmentOrder, apartmentUnitUpdates, panoramaUnit } from './apartmentUpdates.ts';
+import { moreApartments } from './moreApartments.ts';
+import { apartmentFacts } from './apartmentFacts.ts';
+import { apartmentPhotoUpdates } from './apartmentPhotoUpdates.ts';
+
 export interface ApartmentUnit {
   id: number;
   label: string;
   capacity: number | `${number}-${number}`;
   bedrooms: number;
-  hasKitchen: boolean;
-  hasTerrace: boolean;
-  hasLivingRoom: boolean;
+  hasKitchen?: boolean;
+  hasTerrace?: boolean;
+  hasLivingRoom?: boolean;
   bathrooms?: number;
   parking?: string;
   terraceCount?: number;
@@ -18,6 +24,10 @@ export interface Apartment {
   slug: string;
   name: string;
   description: string;
+  descriptionParagraphs?: TextRun[][];
+  capacityLabel?: string;
+  unitCountLabel?: string;
+  galleryNote?: string;
   thumbnail: string;
   units: ApartmentUnit[];
 }
@@ -28,7 +38,7 @@ function generateImages(base: string, prefix: string, count: number, ext = 'jpg'
 
 // Apartment facts follow the shared Montapart accommodation sheet.
 // Missing source values stay unspecified; conditional facilities retain their conditions.
-export const apartments: Apartment[] = [
+const originalApartments: Apartment[] = [
   {
     slug: 'sajat-strandos',
     name: 'Saját strandos apartmanház',
@@ -419,6 +429,30 @@ export const apartments: Apartment[] = [
     ],
   },
 ];
+
+export const apartments: Apartment[] = [
+  ...originalApartments.filter(apartment => apartment.slug !== 'szololugas').map(apartment => ({
+    ...apartment,
+    ...apartmentCopyUpdates[apartment.slug],
+    units: [
+      ...apartment.units.map(unit => ({ ...unit, ...apartmentUnitUpdates[apartment.slug]?.[unit.id] })),
+      ...(apartment.slug === 'rusztikus' ? [panoramaUnit] : []),
+    ],
+  })),
+  ...additionalApartments,
+  ...moreApartments,
+].map(apartment => {
+  const photos = apartmentPhotoUpdates[apartment.slug];
+  return {
+    ...apartment,
+    ...(photos?.thumbnail ? { thumbnail: photos.thumbnail } : {}),
+    units: apartment.units.map(unit => ({
+      ...unit,
+      ...apartmentFacts[apartment.slug]?.[unit.id],
+      images: [...(photos?.units?.[unit.id] ?? unit.images), ...(photos?.sharedImages ?? [])],
+    })),
+  };
+}).sort((a, b) => apartmentOrder.indexOf(a.slug) - apartmentOrder.indexOf(b.slug));
 
 export function getApartmentBySlug(slug: string): Apartment | undefined {
   return apartments.find((a) => a.slug === slug);

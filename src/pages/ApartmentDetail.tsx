@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ArrowLeft } from 'lucide-react';
 import { useParams, Link } from 'react-router-dom';
 import { getApartmentBySlug } from '../data/apartments';
 import { contactInfo } from '../data/contact';
@@ -7,6 +8,7 @@ import ImageGallery from '../components/apartment/ImageGallery';
 import UnitSwitcher from '../components/apartment/UnitSwitcher';
 import FeatureGrid from '../components/apartment/FeatureGrid';
 import AmenityList from '../components/apartment/AmenityList';
+import RichText from '../components/ui/RichText';
 
 export default function ApartmentDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -29,24 +31,21 @@ export default function ApartmentDetail() {
   return (
     <div className="pt-24 pb-20">
       <div className="max-w-site mx-auto px-4 sm:px-6">
-        {/* Breadcrumb */}
-        <nav className="flex flex-wrap items-center gap-2 text-sm text-midnight/40 mb-6">
-          <Link to="/apartments" className="hover:text-sea-600 transition-colors">
-            Apartmanok
-          </Link>
-          <span>/</span>
-          <span className="text-midnight/70">{apartment.name}</span>
-        </nav>
+        <Link to="/apartments" className="inline-flex min-h-11 items-center gap-2 mb-6 text-sm font-medium text-sea-700 hover:text-sea-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea-700">
+          <ArrowLeft size={17} aria-hidden="true" /> Vissza az apartmanokhoz
+        </Link>
 
         <div
-          className="mb-10"
+          className="mb-10 max-w-4xl mx-auto text-left"
         >
-          <h1 className="font-display text-3xl md:text-5xl font-semibold text-midnight mb-4">
+          <h1 className="font-display text-3xl md:text-5xl font-semibold text-midnight mb-4 text-center">
             {apartment.name}
           </h1>
-          <p className="text-midnight/70 max-w-3xl leading-relaxed md:text-lg">
-            {apartment.description}
-          </p>
+          <div className="text-midnight/70 leading-relaxed md:text-lg space-y-4">
+            {apartment.descriptionParagraphs
+              ? apartment.descriptionParagraphs.map((paragraph, index) => <p key={index}><RichText runs={paragraph} /></p>)
+              : <p>{apartment.description}</p>}
+          </div>
         </div>
 
         <div className="mb-6 lg:hidden">
@@ -59,6 +58,7 @@ export default function ApartmentDetail() {
             className="min-w-0 lg:col-span-3"
           >
             <ImageGallery key={`${slug}-${activeUnit.id}`} images={activeUnit.images} name={apartment.name} />
+            {apartment.galleryNote && <p className="mt-3 text-sm leading-relaxed text-midnight/60">{apartment.galleryNote}</p>}
           </div>
 
           {/* Details - 2 cols */}
