@@ -263,7 +263,7 @@ const originalAttractionPlaces: AttractionPlace[] = [
         "text": ":"
       },
       {
-        "text": " Apró, csendes barokk ékszerdoboz a Kotori-öböl közepén. Szűk utcás óvárosában 16 különböző templom áll. Ezek közül a leghíresebb a Szent Miklós-templom, amely az 55 méter magas, látogatható harangtornyával a legmagasabb épület az egész Kotori-öbölben. Perast kőpalotákkal és pálmákkal szegélyezett tengerparti sétányáról indulnak a kishajók az ország egyetlen mesterséges szigetéhez, a híres templommal ékeskedő Sziklák Miasszonyához "
+        "text": " Apró, csendes barokk ékszerdoboz a Kotori-öböl közepén. Szűk utcás óvárosában 16 különböző templom áll. Ezek közül a leghíresebb a Szent Miklós-templom, amely az 55 méter magas, látogatható harangtornyával a legmagasabb épület az egész Kotori-öbölben. Perast kőpalotákkal és pálmákkal szegélyezett tengerparti sétányáról indulnak a kishajók az ország egyetlen mesterséges szigetéhez, a híres templommal ékeskedő Szirti Madonna "
       },
       {
         "text": "(Gospa od Škrpjela)"

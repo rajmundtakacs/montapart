@@ -29,6 +29,7 @@ export interface Apartment {
   unitCountLabel?: string;
   galleryNote?: string;
   thumbnail: string;
+  thumbnailPosition?: string;
   units: ApartmentUnit[];
 }
 
@@ -324,6 +325,15 @@ const originalApartments: Apartment[] = [
         amenities: ['Internet', 'Klíma', 'TV', 'Mosógép (kérésre)', 'Mosogatógép', 'Mikró', 'Vízforraló'],
         images: generateImages('/images/apartmanok/viragos/ap4', 'viragos', 13, 'JPG'),
       },
+      {
+        id: 5,
+        label: 'Apartman 5',
+        capacity: 2,
+        bedrooms: 1,
+        seaDistance: '120 m',
+        amenities: [],
+        images: [],
+      },
     ],
   },
   {
@@ -446,6 +456,7 @@ export const apartments: Apartment[] = [
   return {
     ...apartment,
     ...(photos?.thumbnail ? { thumbnail: photos.thumbnail } : {}),
+    ...(photos?.thumbnailPosition ? { thumbnailPosition: photos.thumbnailPosition } : {}),
     units: apartment.units.map(unit => ({
       ...unit,
       ...apartmentFacts[apartment.slug]?.[unit.id],

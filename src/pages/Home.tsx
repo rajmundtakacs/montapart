@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <div className="bg-sand-50">
       <HeroSection
-        image="/images/index/hero-budva-open.webp"
-        mobileImage="/images/index/hero-budva-open-mobile.webp"
+        image="/images/index/hero-client-coast.webp"
+        mobileImage="/images/index/hero-client-coast-mobile.webp"
         title={<>Tenger karnyújtásnyira,{' '}<span className="lg:block">elérhető áron.</span></>}
         subtitle="Válogatott apartmanok a montenegrói tengerparton, személyes ajánlással."
       >

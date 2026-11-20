@@ -1,5 +1,13 @@
 # Image credits
 
+## Client follow-up — 2026-11-20, Netlify preview
+
+- The local homepage hero trial uses `main_vágva_3.HEIC` from the client's `cover ötletek` folder. The actual source is a 4000 × 2250 JPEG; responsive WebP files are `index/hero-client-coast.webp` and `index/hero-client-coast-mobile.webp`. The mobile version is cropped separately. The existing tint/softening remains CSS. No generative edits or enlargement; the original stays in Drive and the private local source cache. The previous hero remains available.
+- Villa Vita's cover uses the requested garden photograph `VV_kert_12.HEIC` through its existing web copy `apartmanok/villa-vita/kert-02.jpg`. The card uses a 4:3 crop positioned to show the roof and the upper part of the yard. PetroVibes uses the client-approved candidate `PetroVibes_1.jpg`, cropped to 4:3 as `apartmanok/petrovibes/petrovibes-cover.jpg`.
+- The five Blue Apartment 2 images numbered 13–17 now belong to Apartment 3; Rustic Apartment 2 images 2–5 belong to Apartment 1. Existing web files are reused without deletion; the common Drive originals were moved to the correct unit folders, with distinct descriptive filenames to avoid collisions. IDs, source and destination folders, and verification are recorded privately in `docs/montapart-followup-20261120.local`.
+- The five Virágos galleries use 30 selected client photos under `apartmanok/viragos/ap1–ap5/friss/`. Apartment 2 also retains images 2, 3, 4 and 9. Apartment 3 also retains images 3, 4, 6 and 7. Apartment 4 replaces the two bathroom photos. Selected originals were copied to the five matching shared Drive folders and verified. The private source map is `docs/montapart-viragos-20261120.local`. Budva and Fehér Hotel await client photos.
+- This follow-up is visible on the Netlify review preview, deploy `6b007c93c019c90b439f3675`.
+
 ## Client material update — 2026-11-19, local preview
 
 - The client-selected `public/images/index/montenegro-client.jpg` replaces the provisional Sveti Stefan image on the Montenegro page and its home card. The former photograph remains available elsewhere.

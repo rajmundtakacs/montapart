@@ -1,4 +1,4 @@
-// Client-provided questions and answers, 2026-11-19.
+// Client-provided questions and answers, updated 2026-11-20.
 export const montenegroFaq = [
   {
     "question": "Vannak turnusok?",
@@ -6,7 +6,11 @@ export const montenegroFaq = [
   },
   {
     "question": "Mikor lehet elfoglalni és elhagyni a szállásokat?",
-    "answer": "A legtöbb apartman esetében 14:00 órától lehet érkezni. A távozás napján 9:00 és 10:00 óra között kérem elhagyni a szálláshelyet. (Ez apartmanonként változhat, ezért kérem, egyeztessünk.)"
+    "answer": "A legtöbb apartman esetében 14:00 órától lehet érkezni. A távozás napján 9:00 óráig kérem elhagyni a szálláshelyet. (Ez apartmanonként változhat, ezért kérem, egyeztessünk.)"
+  },
+  {
+    "question": "Maradhatok-e a szálláshelyen a távozás napján tovább, ha a repülőgépem csak a késő délutáni, esti órákban indul?",
+    "answer": "Amennyiben a vendég már foglaláskor tudja, hogy az apartmant nem fogja átadni a távozás tervezett napján 9:00 óráig bármilyen okból (akár kései repülőgép indulás), akkor azt a napot még foglalnia kell, melynek mértéke a szálláshely éjszakák után fizetett díjával azonos."
   },
   {
     "question": "Hány parkolóhely jár egy apartmanhoz?",

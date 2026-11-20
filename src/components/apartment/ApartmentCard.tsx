@@ -34,6 +34,7 @@ export default function ApartmentCard({
           maxWidth={800}
           alt={apartment.name}
           loading="lazy"
+          style={{ objectPosition: apartment.thumbnailPosition }}
           className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
         />
         {/* Badges top-left */}

@@ -50,7 +50,7 @@ export default function HeroSection({
       <div
         className={`absolute inset-0 ${
           isHome
-            ? 'bg-gradient-to-r from-midnight/40 via-midnight/10 to-transparent lg:bg-radial lg:from-midnight/30 lg:via-midnight/15'
+            ? 'bg-gradient-to-r from-midnight/45 via-midnight/22 to-transparent lg:bg-radial lg:from-midnight/40 lg:via-midnight/20'
             : 'bg-midnight/40'
         }`}
       />
