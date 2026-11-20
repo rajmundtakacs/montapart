@@ -1,12 +1,24 @@
 import type { Apartment } from './apartments';
 // Shared client description and studio-group sheet data, 2026-11-19.
 // The studio source describes a category, not a verified inventory count.
+const adriaImages = [
+  '/images/apartmanok/adria/adria-01.jpg',
+  '/images/apartmanok/adria/adria-haloszoba.jpg',
+  '/images/apartmanok/adria/adria-konyha.jpg',
+  '/images/apartmanok/adria/adria-furdoszoba.jpg',
+  '/images/apartmanok/adria/adria-02.jpg',
+  '/images/apartmanok/adria/adria-03.jpg',
+  '/images/apartmanok/adria/adria-04.jpg',
+  '/images/apartmanok/adria/adria-05.jpg',
+  '/images/apartmanok/adria/adria-06.jpg',
+];
+
 export const moreApartments: Apartment[] = [
   {
     "slug": "adria",
     "name": "Adria Apartmanok",
     "thumbnail": "/images/apartmanok/adria/adria-01.jpg",
-    "galleryNote": "A képek a szállás épületét és közös külső tereit mutatják.",
+    "galleryNote": "A közös galéria az apartmanház külső és belső tereit mutatja, szintenkénti bontás nélkül.",
     "description": "A kétemeletes villában egy földszinti és egy emeleti hatfős szálláshely található. Mindkét tágas apartman két hálószobával és két fürdőszobával várja a vendégeit. Sutomore központi nagy strandja mindössze 120 méteres sétával elérhető. Adottságai és felszereltsége mellett barátságos autentikus montenegrói házigazdája miatt is kedvelt szálláshely.",
     "descriptionParagraphs": [
       [
@@ -24,14 +36,7 @@ export const moreApartments: Apartment[] = [
         "bathrooms": 2,
         "seaDistance": "120 m",
         "amenities": [],
-        "images": [
-          "/images/apartmanok/adria/adria-01.jpg",
-          "/images/apartmanok/adria/adria-02.jpg",
-          "/images/apartmanok/adria/adria-03.jpg",
-          "/images/apartmanok/adria/adria-04.jpg",
-          "/images/apartmanok/adria/adria-05.jpg",
-          "/images/apartmanok/adria/adria-06.jpg"
-        ]
+        "images": adriaImages
       },
       {
         "id": 2,
@@ -41,14 +46,7 @@ export const moreApartments: Apartment[] = [
         "bathrooms": 2,
         "seaDistance": "120 m",
         "amenities": [],
-        "images": [
-          "/images/apartmanok/adria/adria-01.jpg",
-          "/images/apartmanok/adria/adria-02.jpg",
-          "/images/apartmanok/adria/adria-03.jpg",
-          "/images/apartmanok/adria/adria-04.jpg",
-          "/images/apartmanok/adria/adria-05.jpg",
-          "/images/apartmanok/adria/adria-06.jpg"
-        ]
+        "images": adriaImages
       }
     ]
   },

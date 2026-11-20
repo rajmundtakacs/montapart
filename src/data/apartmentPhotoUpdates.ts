@@ -150,6 +150,7 @@ export const apartmentPhotoUpdates: Record<string, { thumbnail?: string; thumbna
     "thumbnail": "/images/apartmanok/petrovibes/petrovibes-cover.jpg"
   },
   "viragos": {
+    "thumbnail": "/images/apartmanok/viragos/ap1/friss/img_9755.jpg",
     "units": {
       "1": [
         "/images/apartmanok/viragos/ap1/friss/img_9755.jpg",
