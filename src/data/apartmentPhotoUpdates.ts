@@ -1,7 +1,7 @@
 // Client-supplied photos mapped to confirmed accommodation and floor folders.
 export const apartmentPhotoUpdates: Record<string, { thumbnail?: string; thumbnailPosition?: string; units?: Record<number, string[]>; sharedImages?: string[] }> = {
   "sarga": {
-    "thumbnail": "/images/apartmanok/sarga/kert/sarga-kert-01.jpg",
+    "thumbnail": "/images/apartmanok/sarga/kert/sarga-kert-terasz.jpg",
     "units": {
       "1": [
         "/images/apartmanok/sarga/ap1-friss/sarga-ap1-01.jpg",
@@ -12,7 +12,7 @@ export const apartmentPhotoUpdates: Record<string, { thumbnail?: string; thumbna
       ]
     },
     "sharedImages": [
-      "/images/apartmanok/sarga/kert/sarga-kert-01.jpg",
+      "/images/apartmanok/sarga/kert/sarga-kert-terasz.jpg",
       "/images/apartmanok/sarga/kert/sarga-kert-02.jpg",
       "/images/apartmanok/sarga/kert/sarga-kert-03.jpg",
       "/images/apartmanok/sarga/kert/sarga-kert-04.jpg"
@@ -99,6 +99,7 @@ export const apartmentPhotoUpdates: Record<string, { thumbnail?: string; thumbna
     }
   },
   "rusztikus": {
+    "thumbnail": "/images/apartmanok/rusztikus/images/ap3/rusztikus_11.JPG",
     "units": {
       "1": [
         "/images/apartmanok/rusztikus/images/ap1/rusztikus_1.JPG",

@@ -283,12 +283,12 @@ export const additionalApartments: Apartment[] = [
         ],
         "images": [
           "/images/apartmanok/zold/zold-01.jpg",
-          "/images/apartmanok/zold/zold-02.jpg",
           "/images/apartmanok/zold/zold-03.jpg",
           "/images/apartmanok/zold/zold-04.jpg",
           "/images/apartmanok/zold/zold-05.jpg",
           "/images/apartmanok/zold/zold-06.jpg",
           "/images/apartmanok/zold/zold-07.jpg",
+          "/images/apartmanok/zold/zold-terasz.jpg",
           "/images/apartmanok/zold/zold-08.jpg",
           "/images/apartmanok/zold/zold-09.jpg"
         ]

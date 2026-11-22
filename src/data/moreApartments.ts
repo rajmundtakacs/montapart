@@ -89,7 +89,7 @@ export const moreApartments: Apartment[] = [
           "/images/apartmanok/studios/studios-04.jpg",
           "/images/apartmanok/studios/studios-05.jpg",
           "/images/apartmanok/studios/studios-06.jpg",
-          "/images/apartmanok/studios/studios-07.jpg",
+          "/images/apartmanok/studios/studios-szoba-terasz.jpg",
           "/images/apartmanok/studios/studios-08.jpg"
         ]
       }
