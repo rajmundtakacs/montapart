@@ -188,7 +188,7 @@ export const montenegroContent: MontenegroContent = {
             "text": "Turistička organizacija"
           },
           {
-            "text": "). Azt, hogy Ön hogyan szeretné rendezni, egyeztetem Önnek. Azt mindenképp érdemes tudni, hogy a regisztráció elmulasztása komoly bírságot vonhat maga után."
+            "text": "). Azt, hogy Ön hogyan szeretné rendezni, egyeztetem Önnel. Azt mindenképp érdemes tudni, hogy a regisztráció elmulasztása komoly bírságot vonhat maga után."
           }
         ]
       ]

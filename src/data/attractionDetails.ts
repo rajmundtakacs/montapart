@@ -14,6 +14,7 @@ export interface AttractionPlace {
   name: string;
   category: 'varosok' | 'nevezetessegek' | 'strandok';
   images: string[];
+  cardImage?: string;
   imagePosition?: string;
   photoCredit?: PhotoCredit;
   description: TextRun[];
@@ -111,7 +112,21 @@ const originalAttractionPlaces: AttractionPlace[] = [
         "text": "Štrbina Beach"
       },
       {
-        "text": " és a magyarok által csak Alagút Strandként emlegetett "
+        "text": ", a "
+      },
+      {
+        "text": "Maljevik Beach",
+        "bold": true
+      },
+      {
+        "text": " és a magyarok által csak "
+      },
+      {
+        "text": "Alagutas",
+        "bold": true
+      },
+      {
+        "text": " Strandként emlegetett "
       },
       {
         "text": "Devchen Plaza"
@@ -263,7 +278,7 @@ const originalAttractionPlaces: AttractionPlace[] = [
         "text": ":"
       },
       {
-        "text": " Apró, csendes barokk ékszerdoboz a Kotori-öböl közepén. Szűk utcás óvárosában 16 különböző templom áll. Ezek közül a leghíresebb a Szent Miklós-templom, amely az 55 méter magas, látogatható harangtornyával a legmagasabb épület az egész Kotori-öbölben. Perast kőpalotákkal és pálmákkal szegélyezett tengerparti sétányáról indulnak a kishajók az ország egyetlen mesterséges szigetéhez, a híres templommal ékeskedő Szirti Madonna "
+        "text": " Apró, csendes barokk ékszerdoboz a Kotori-öböl közepén. Szűk utcás óvárosában 16 különböző templom áll. Ezek közül a leghíresebb a Szent Miklós-templom, amely az 55 méter magas, látogatható harangtornyával a legmagasabb épület az egész Kotori-öbölben. Perast kőpalotákkal és pálmákkal szegélyezett tengerparti sétányáról indulnak a kishajók az ország egyetlen mesterséges szigetéhez, a híres templommal ékeskedő Szirti Madonnához "
       },
       {
         "text": "(Gospa od Škrpjela)"
@@ -301,7 +316,7 @@ const originalAttractionPlaces: AttractionPlace[] = [
         "text": "Cetinje"
       },
       {
-        "text": " hűvösebb hegyi levegőjével, platánokkal szegélyezett sétálóutcáival és lenyűgöző építészetével kiváló egy napos úticél azok számára, akik az autentikus Montenegrót keresik. Kolostora olyan felbecsülhetetlen ereklyéket őriz, mint Keresztelő János jobb keze és a Szent Kereszt egy darabja. A rendházzal szemben található a középkori várra hasonlító "
+        "text": " hűvösebb hegyi levegőjével, platánokkal szegélyezett sétálóutcáival és lenyűgöző építészetével kiváló egynapos úti cél azok számára, akik az autentikus Montenegrót keresik. Kolostora olyan felbecsülhetetlen ereklyéket őriz, mint Keresztelő János jobb keze és a Szent Kereszt egy darabja. A rendházzal szemben található a középkori várra hasonlító "
       },
       {
         "text": "Biljárda, "
@@ -807,7 +822,7 @@ const originalAttractionPlaces: AttractionPlace[] = [
           ],
           [
             {
-              "text": "Kotor- San Giovanni erőd (hegytető) 1,3 (🚶)"
+              "text": "Kotor- San Giovanni erőd (hegytető) 1,3 km (🚶)"
             }
           ]
         ]

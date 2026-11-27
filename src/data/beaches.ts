@@ -67,18 +67,18 @@ export const beachPreviews: AttractionPlace[] = [
   },
   {
     "slug": "alagut-strand",
-    "name": "Alagút Strand",
+    "name": "Alagutas Strand",
     "category": "strandok",
     "images": [
       "/images/attractions/strandok/alagut-strand-client.jpg"
     ],
     "description": [
       {
-        "text": "Alagút Strand: ",
+        "text": "Alagutas Strand: ",
         "bold": true
       },
       {
-        "text": "A Sutomore melletti Devchen Plaza legnagyobb szenzációja maga a bejutás. Ez a különleges, eldugott és vadregényes tengerparti öböl a hozzá vezető, sziklába vájt sötét alagútról ismert. A  közel 400 méter hosszú, egykori hegyi vízelvezető teljesen sötét és hűvös, ezért az átjutáshoz zseblámpa vagy a telefon fényére lesz szükség. De igaz a mondás, miszerint “bátraké a szerencse”, mert a túloldalon egy drámai sziklaívekkel és monumentális vörös sziklákkal övezett, eldugott, nagyjából 250 méter hosszú öböl fogadja a strandolókat. A türkizkék tengervíz lenyűgözően tiszta. Ez a sznorkelezők és a búvárok paradicsoma. "
+        "text": "A Sutomore melletti Devchen Plaza legnagyobb szenzációja maga a bejutás. Ez a különleges, eldugott és vadregényes tengerparti öböl a hozzá vezető, sziklába vájt sötét alagútról ismert. A  közel 400 méter hosszú, egykori hegyi vízelvezető teljesen sötét és hűvös, ezért az átjutáshoz zseblámpára vagy a telefon fényére lesz szükség. De igaz a mondás, miszerint “bátraké a szerencse”, mert a túloldalon egy drámai sziklaívekkel és monumentális vörös sziklákkal övezett, eldugott, nagyjából 250 méter hosszú öböl fogadja a strandolókat. A türkizkék tengervíz lenyűgözően tiszta. Ez a sznorkelezők és a búvárok paradicsoma. "
       },
       {
         "text": "Vadstrand (!)",
@@ -88,7 +88,7 @@ export const beachPreviews: AttractionPlace[] = [
         "text": ": teljesen kiépítetlen, vízminőségi szempontból ellenőrizetlen, természetes partszakasz."
       }
     ],
-    "descriptionTitle": "Alagút Strand",
+    "descriptionTitle": "Alagutas Strand",
     "details": []
   },
   {
@@ -150,7 +150,7 @@ export const beachPreviews: AttractionPlace[] = [
   },
   {
     "slug": "perazica-do",
-    "imagePosition": "object-left",
+    "cardImage": "/images/attractions/strandok/perazica-do-card.jpg",
     "name": "Perazića Do",
     "category": "strandok",
     "images": [
@@ -162,7 +162,7 @@ export const beachPreviews: AttractionPlace[] = [
         "bold": true
       },
       {
-        "text": ": a strand egy fehér kavicsos és durva homokos öböl, amelyet meredek homokkő sziklafalak fognak közre. Bár a környékbeli strandokhoz képest csendes, vizuálisan azért elég drámai a “szellemhotellel” a háttérben: a partra tervezett grandiózus beruházás ugyanis évekkel ezelőtt félbemaradt. Mivel nincsenek hangos vízi sportok, a tenger tiszta, átlátszó – tökéletes a zavartalan úszásra és a sziklás részek menti búvárkodásra. Bár autóval is elérhető, a legstílusosabb és legszebb megközelítése egy gyalogos tengerparti sétány Petrovac felől. Az út fenyveseken, sziklák peremén és a sziklába kézzel vájt, sejtelmesen sötét gyalogos alagutakon vezet keresztül, ami már önmagában egy felejthetetlen élmény."
+        "text": ": A strand egy fehér kavicsos és durva homokos öböl, amelyet meredek homokkő sziklafalak fognak közre. Bár a környékbeli strandokhoz képest csendes, vizuálisan azért elég drámai a “szellemhotellel” a háttérben: a partra tervezett grandiózus beruházás ugyanis évekkel ezelőtt félbemaradt. Mivel nincsenek hangos vízi sportok, a tenger tiszta, átlátszó – tökéletes a zavartalan úszásra és a sziklás részek menti búvárkodásra. Bár autóval is elérhető, a legstílusosabb és legszebb megközelítése egy gyalogos tengerparti sétány Petrovac felől. Az út fenyveseken, sziklák peremén és a sziklába kézzel vájt, sejtelmesen sötét gyalogos alagutakon vezet keresztül, ami már önmagában egy felejthetetlen élmény."
       }
     ],
     "descriptionTitle": "Perazića Do",

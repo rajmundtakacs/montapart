@@ -7,7 +7,7 @@ import { apartmentPhotoUpdates } from './apartmentPhotoUpdates.ts';
 export interface ApartmentUnit {
   id: number;
   label: string;
-  capacity: number | `${number}-${number}`;
+  capacity?: number | `${number}-${number}`;
   bedrooms: number;
   hasKitchen?: boolean;
   hasTerrace?: boolean;
@@ -28,6 +28,7 @@ export interface Apartment {
   capacityLabel?: string;
   unitCountLabel?: string;
   galleryNote?: string;
+  photoSection?: { title: string; images: string[] };
   thumbnail: string;
   thumbnailPosition?: string;
   units: ApartmentUnit[];
@@ -126,7 +127,7 @@ const originalApartments: Apartment[] = [
   },
   {
     slug: 'branka',
-    name: 'Branka néni apartmanháza',
+    name: 'Branka néni Apartmanháza',
     description:
       'Sutomoréban 110 m-re a homokos partszakasztól kiadó egy tágas, teljesen felszerelt, modern két külön nyíló hálószobás, nappali konyhás apartman (max. 5 fő). Az itt bemutatott másik apartman 3 fő számára alkalmas. Wi-fi, klíma, terasz is tartozik.',
     thumbnail: '/images/apartmanok/brankaneni/thumbnail.JPG',
@@ -161,7 +162,7 @@ const originalApartments: Apartment[] = [
   },
   {
     slug: 'kek',
-    name: 'Kék apartmanház',
+    name: 'Kék Apartmanház',
     description:
       'Ezekben a csodálatos kilátással rendelkező apartmanokban jól lehet kikapcsolódni. Az itt bemutatott apartmanok 5, 4 és 3 fő számára alkalmasak; az első két hálószobával és nappalival rendelkezik. Mindegyik tengerre néz, wi-fi, klíma, strand az apartmanok alatt.',
     thumbnail: '/images/apartmanok/kek/thumbnail.png',
@@ -209,7 +210,7 @@ const originalApartments: Apartment[] = [
   },
   {
     slug: 'rusztikus',
-    name: 'Rusztikus apartmanház',
+    name: 'Rusztikus Apartmanház',
     description:
       'Rusztikus stílusú apartmanok tengeri panorámával. Sutomoréban, a strandtól gyalog kb. 80 m-re tengerre néző terasszal rendelkező apartmanok várják a vendégeket. Az itt bemutatott két hálószobás apartmanok 5 és 4 fősek, az egy hálószobás apartmanok 3 és 2 fő befogadására alkalmasak. Az apartmanok teljesen felszereltek. Garantáltan csodálatos innen a naplemente!',
     thumbnail: '/images/apartmanok/rusztikus/thumbnail.png',
@@ -223,7 +224,7 @@ const originalApartments: Apartment[] = [
         hasTerrace: true,
         hasLivingRoom: false,
         parking: 'igen',
-        seaDistance: '80 m',
+        seaDistance: '',
         amenities: ['Internet', 'Klíma', 'TV', 'Mikró', 'Vízforraló'],
         images: generateImages('/images/apartmanok/rusztikus/images/ap1', 'rusztikus', 16, 'JPG'),
       },
@@ -236,7 +237,7 @@ const originalApartments: Apartment[] = [
         hasTerrace: true,
         hasLivingRoom: false,
         parking: 'igen',
-        seaDistance: '80 m',
+        seaDistance: '',
         amenities: ['Internet', 'Klíma', 'TV', 'Mosógép', 'Mikró', 'Vízforraló'],
         images: generateImages('/images/apartmanok/rusztikus/images/ap2', 'rusztikus', 20, 'JPG'),
       },
@@ -249,9 +250,9 @@ const originalApartments: Apartment[] = [
         hasTerrace: true,
         hasLivingRoom: false,
         parking: 'igen',
-        seaDistance: '80 m',
+        seaDistance: '',
         amenities: ['Internet', 'Klíma', 'TV', 'Mikró', 'Vízforraló'],
-        images: generateImages('/images/apartmanok/rusztikus/images/ap3', 'rusztikus', 12, 'JPG'),
+        images: generateImages('/images/apartmanok/rusztikus/images/ap3', 'rusztikus', 12, 'JPG').slice(1),
       },
       {
         id: 4,
@@ -262,7 +263,7 @@ const originalApartments: Apartment[] = [
         hasTerrace: true,
         hasLivingRoom: false,
         parking: 'igen',
-        seaDistance: '80 m',
+        seaDistance: '',
         amenities: ['Internet', 'Klíma', 'TV', 'Mikró', 'Vízforraló'],
         images: generateImages('/images/apartmanok/rusztikus/images/ap4', 'rusztikus', 8, 'JPG'),
       },
@@ -270,7 +271,7 @@ const originalApartments: Apartment[] = [
   },
   {
     slug: 'viragos',
-    name: 'Virágos apartmanház',
+    name: 'Virágos Apartmanház',
     description:
       'Növényekkel és mediterrán növényzettel körülvett, a tengertől gyalog 120 méterre igényes apartmanok várják a nyaralókat. Felár ellenében, teljesen zárt garázs.',
     thumbnail: '/images/apartmanok/viragos/thumbnail.JPG',
@@ -338,7 +339,7 @@ const originalApartments: Apartment[] = [
   },
   {
     slug: 'sarga',
-    name: 'Sárga apartmanház',
+    name: 'Sárga Apartmanház',
     description:
       'Kényelmes, teljesen felszerelt apartmanok a tengerparttól pár percre. Modern berendezés, légkondicionálás és minden, amire szükséged lehet a tökéletes nyaraláshoz.',
     thumbnail: '/images/apartmanok/sarga/thumbnail.png',
@@ -418,7 +419,7 @@ const originalApartments: Apartment[] = [
   },
   {
     slug: 'natasa',
-    name: 'Natasa apartman',
+    name: 'Natasa Apartman',
     description:
       'Kényelmes apartman csodálatos tengerparti környezetben. A tengertől 100 méterre található, 2–3 fős apartman egy hálószobával, konyhával és terasszal várja vendégeit.',
     thumbnail: '/images/apartmanok/natasa/thumbnail.JPG',

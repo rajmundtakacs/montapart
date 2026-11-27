@@ -27,7 +27,7 @@ export const hotels: Hotel[] = [
     "slug": "budva-3-csillag",
     "stars": 3,
     "image": hotelImages.budva[0],
-    "description": "Reggelivel vagy félpanzióval várja a vendégeket Budvában ez a szálloda, amely felszereltsége alapján három csillagos besorolású, és ennek megfelelő áron szerepel itt a kínálatban. Az ide foglaló visszatérő vendégek a város hangulata mellett a hotel előnyének tartják, hogy mindössze 400 méter sétával elérhető Budva kedvelt és leghosszabb strandszakasza, a Slovenska plaza.",
+    "description": "Reggelivel vagy félpanzióval várja a vendégeket Budvában ez a szálloda, amely felszereltsége alapján háromcsillagos besorolású, és ennek megfelelő áron szerepel itt a kínálatban. Az ide foglaló visszatérő vendégek a város hangulata mellett a hotel előnyének tartják, hogy mindössze 400 méter sétával elérhető Budva kedvelt és leghosszabb strandszakasza, a Slovenska plaza.",
     "images": hotelImages.budva
   },
   {
@@ -45,7 +45,7 @@ export const hotels: Hotel[] = [
     "slug": "feher-hotel-sutomore",
     "stars": 4,
     "image": hotelImages.feher[0],
-    "description": "A hegyek és az Adria találkozásánál kínál 4 csillagos, élményekben gazdag pihenést a saját tengerpartos hotel, amelynek 2-3 vagy 4 fős szobái a tengerre és a Rumija-hegységre is lenyűgöző kilátást nyújtanak. A wellness- és spa-részleg (medencével, jakuzzival, szaunákkal, gőzfürdővel, masszázsokkal és edzőteremmel), valamint változatos gasztronómiai kínálat mellett egy tizedik emeleti Sky Barral várja a vendégeket. A szállás félpanziós ellátással foglalható.",
+    "description": "A hegyek és az Adria találkozásánál kínál négycsillagos, élményekben gazdag pihenést a saját tengerpartos hotel, amelynek 2-3 vagy 4 fős szobái a tengerre és a Rumija-hegységre is lenyűgöző kilátást nyújtanak. A wellness- és spa-részleg (medencével, jakuzzival, szaunákkal, gőzfürdővel, masszázsokkal és edzőteremmel), valamint változatos gasztronómiai kínálat mellett egy tizedik emeleti Sky Barral várja a vendégeket. A szállás félpanziós ellátással foglalható.",
     "images": hotelImages.feher
   },
 ];

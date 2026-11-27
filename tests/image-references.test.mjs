@@ -7,7 +7,11 @@ import { getImageVariants } from '../src/lib/images.ts';
 
 test('all published accommodation photos resolve to real optimized files, including legacy JPG case mismatches', async () => {
   const paths = [
-    ...apartments.flatMap(apartment => [apartment.thumbnail, ...apartment.units.flatMap(unit => unit.images)]),
+    ...apartments.flatMap(apartment => [
+      apartment.thumbnail,
+      ...(apartment.photoSection?.images ?? []),
+      ...apartment.units.flatMap(unit => unit.images),
+    ]),
     ...hotels.flatMap(hotel => [...(hotel.image ? [hotel.image] : []), ...(hotel.images ?? [])]),
   ];
   for (const path of paths) {

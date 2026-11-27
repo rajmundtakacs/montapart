@@ -1,10 +1,18 @@
 import type { Apartment, ApartmentUnit } from './apartments';
-// Shared client copy and accommodation sheet, updated through 2026-11-20. Unresolved source differences are tracked privately.
+// Shared client copy and accommodation sheet, updated through 2026-11-25.
 
 export const apartmentCopyUpdates: Record<string, Partial<Apartment>> = {
   "lugas": {
-    "name": "Villa Vita apartmanház",
+    "name": "Villa Vita Apartmanház",
     "thumbnail": "/images/apartmanok/villa-vita/kert-01.jpg",
+    "photoSection": {
+      "title": "Kert",
+      "images": [
+        "/images/apartmanok/villa-vita/kert-02.jpg",
+        "/images/apartmanok/villa-vita/kert-01.jpg",
+        "/images/apartmanok/villa-vita/kert-03.jpg"
+      ]
+    },
     "description": "Csendes környezetben lévő, gondozott zöld privát kerttel rendelkező teljesen felszerelt apartmanház várja a vendégeit. A három különálló apartmanban összesen maximum 12-14 fő fér el. Így ideális választás lehet pároknak, családoknak és baráti társaságoknak egyaránt, akik élvezni szeretnék a város nyüzsgését vagy éppenséggel a teljes pihenést. Az apartmanház nagy udvarral rendelkezik, ahol (elektromos)grill is található; a sok zöld növény között pedig kellemes a hűsölés a nyári kánikulában. Minden apartmanhoz egy-egy parkoló tartozik. A tenger és a városi strand kb. 500 m-re található. Gyerek és állatbarát szálláshely. A villa egyben is kivehető.",
     "descriptionParagraphs": [
       [
@@ -13,6 +21,28 @@ export const apartmentCopyUpdates: Record<string, Partial<Apartment>> = {
         }
       ]
     ]
+  },
+  "rusztikus": {
+    "description": "A sutomorei strandtól gyalogosan mintegy 50 méterre, tengerre néző terasszal rusztikus stílusú apartmanház várja a vendégeket. A kínálatában szereplő szálláshelyek közül a legnépszerűbb a csodálatos tengeri kilátásával és tágasságával csábító Panoráma Apartman, amely három külön hálószobájával, két fürdőszobájával és teljesen felszerelt konyhájával – beleértve a mosogatógépet is – akár hat fő számára is tökéletes kényelmet biztosít a vakáció alatt. A házban található két olyan apartman, amelyek két hálószobával 4–5 vendég részére biztosítanak kényelmes pihenést, valamint két stúdió is, amelyeket két-három fő részére ajánlok. Valamennyi teljesen felszerelt. Teraszaikról, ablakaikból garantáltan csodálatos a naplemente!"
+  },
+  "viragos": {
+    "description": "Zöld környezetben, mediterrán növényzettel körülvett, a tengertől gyalog mindössze 120 méterre igényes apartmanok várják a nyaralókat. A vendégek kedvence a háromszintes épület legfelső emeletén található Lux Apartman, amely nappali-konyhás és két hálószobás elrendezésével öt fő számára biztosítja a kényelmes pihenést. Az alsóbb szinteken található egy nappalis, konyhás, egy hálószobás szálláshely balkonnal, valamint egy ugyanilyen beosztású kertkapcsolatos apartman. További két stúdió is kiadó a házban. Felár ellenében, teljesen zárt garázs is bérelhető a szálláshely közvetlen szomszédságában."
+  },
+  "sarga": {
+    "description": "Kényelmes sétatávolságra a tengertől, teljesen felszerelt apartmanház várja a vakációzókat. A teljes villa bérlésével nagyobb (akár 12–14 fős) társaságok is eltölthetik itt a vakációjukat, de az öt különböző méretű (három 3–4 fős és két 2–3 fős) apartman külön-külön is foglalható. A kiadó villában modern berendezés, légkondicionált szobák, Wi-Fi és szépen gondozott kert, valamint elektromos grillező biztosítja a kényelmet és kikapcsolódást.",
+    "capacityLabel": "12–14 fő a teljes villában",
+    "unitCountLabel": "5 foglalható egység",
+    "photoSection": {
+      "title": "Felújított stúdiók",
+      "images": [
+        "/images/apartmanok/sarga/studiok/sarga-studio-01.jpg",
+        "/images/apartmanok/sarga/studiok/sarga-studio-02.jpg",
+        "/images/apartmanok/sarga/studiok/sarga-studio-03.jpg",
+        "/images/apartmanok/sarga/studiok/sarga-studio-04.jpg",
+        "/images/apartmanok/sarga/studiok/sarga-studio-05.jpg",
+        "/images/apartmanok/sarga/studiok/sarga-studio-06.jpg"
+      ]
+    }
   },
   "branka": {
     "description": "Sutomoréban, mindössze 110 méterre a homokos partszakasztól, kiadó ez a tágas, teljesen felszerelt, modern apartman. Nappali-konyhás elrendezésével, két külön nyíló hálószobájával legfeljebb öt fő részére biztosít pihenést a vakáció idejére. \n\nAz itt bemutatott másik apartman háromfős. \n\nA vendégek kényelmét az apartmanházban klíma és Wi-Fi is biztosítja.  Az apartmanokhoz terasz is tartozik.",
@@ -109,10 +139,7 @@ export const apartmentUnitUpdates: Record<string, Record<number, Partial<Apartme
         "/images/apartmanok/villa-vita/ap1/villa-vita-02.jpg",
         "/images/apartmanok/villa-vita/ap1/villa-vita-03.jpg",
         "/images/apartmanok/villa-vita/ap1/villa-vita-04.jpg",
-        "/images/apartmanok/villa-vita/ap1/villa-vita-05.jpg",
-        "/images/apartmanok/villa-vita/kert-01.jpg",
-        "/images/apartmanok/villa-vita/kert-02.jpg",
-        "/images/apartmanok/villa-vita/kert-03.jpg"
+        "/images/apartmanok/villa-vita/ap1/villa-vita-05.jpg"
       ]
     },
     "2": {
@@ -131,10 +158,7 @@ export const apartmentUnitUpdates: Record<string, Record<number, Partial<Apartme
         "/images/apartmanok/villa-vita/ap2/villa-vita-02.jpg",
         "/images/apartmanok/villa-vita/ap2/villa-vita-03.jpg",
         "/images/apartmanok/villa-vita/ap2/villa-vita-04.jpg",
-        "/images/apartmanok/villa-vita/ap2/villa-vita-05.jpg",
-        "/images/apartmanok/villa-vita/kert-01.jpg",
-        "/images/apartmanok/villa-vita/kert-02.jpg",
-        "/images/apartmanok/villa-vita/kert-03.jpg"
+        "/images/apartmanok/villa-vita/ap2/villa-vita-05.jpg"
       ]
     },
     "3": {
@@ -154,10 +178,7 @@ export const apartmentUnitUpdates: Record<string, Record<number, Partial<Apartme
         "/images/apartmanok/villa-vita/ap3/villa-vita-03.jpg",
         "/images/apartmanok/villa-vita/ap3/villa-vita-04.jpg",
         "/images/apartmanok/villa-vita/ap3/villa-vita-05.jpg",
-        "/images/apartmanok/villa-vita/ap3/villa-vita-06.jpg",
-        "/images/apartmanok/villa-vita/kert-01.jpg",
-        "/images/apartmanok/villa-vita/kert-02.jpg",
-        "/images/apartmanok/villa-vita/kert-03.jpg"
+        "/images/apartmanok/villa-vita/ap3/villa-vita-06.jpg"
       ]
     }
   }
@@ -173,7 +194,7 @@ export const panoramaUnit: ApartmentUnit = {
   "hasLivingRoom": true,
   "bathrooms": 2,
   "parking": "igen",
-  "seaDistance": "80 m",
+  "seaDistance": "",
   "amenities": [
     "Internet",
     "Klíma",
@@ -311,7 +332,7 @@ export const apartmentOrder = [
   "studio-sajat-part",
   "sarga",
   "petrovac",
-  "barna",
   "adria",
-  "natasa"
+  "natasa",
+  "barna"
 ];

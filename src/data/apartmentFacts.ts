@@ -1,7 +1,7 @@
 import type { ApartmentUnit } from './apartments';
 // Shared accommodation sheet snapshot, 2026-11-19.
 // Aranypart sea distance comes from its current client description (20 m sea / 100 m beach); the sheet has no numeric distance.
-// PetroVibes distance stays omitted pending the 500/600 m source difference.
+// PetroVibes distance and the Rusztikus Panoráma dishwasher were confirmed on 2026-11-25.
 export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit>>> = {
   "sajat-strandos": {
     "1": {
@@ -43,7 +43,6 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
   },
   "utjeha-villa": {
     "1": {
-      "capacity": 10,
       "bedrooms": 4,
       "hasLivingRoom": true,
       "hasKitchen": true,
@@ -278,7 +277,6 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
       "hasLivingRoom": false,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "80 m",
       "amenities": [
         "Klíma",
         "TV",
@@ -294,7 +292,6 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
       "hasLivingRoom": false,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "80 m",
       "amenities": [
         "Klíma",
         "Mosógép",
@@ -311,7 +308,6 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
       "hasLivingRoom": false,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "80 m",
       "amenities": [
         "Klíma",
         "TV",
@@ -327,7 +323,6 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
       "hasLivingRoom": false,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "80 m",
       "amenities": [
         "Klíma",
         "TV",
@@ -343,10 +338,10 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
       "hasLivingRoom": true,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "80 m",
       "amenities": [
         "Klíma",
         "Mosógép",
+        "Mosogatógép",
         "TV",
         "Internet",
         "Vízforraló",
@@ -531,12 +526,10 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
   },
   "barna": {
     "1": {
-      "capacity": 5,
       "bedrooms": 1,
       "hasLivingRoom": true,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "250 m",
       "amenities": [
         "Klíma",
         "TV",
@@ -552,7 +545,6 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
       "hasLivingRoom": false,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "250 m",
       "amenities": [
         "Klíma",
         "TV",
@@ -693,7 +685,7 @@ export const apartmentFacts: Record<string, Record<number, Partial<ApartmentUnit
       "hasLivingRoom": true,
       "hasKitchen": true,
       "hasTerrace": true,
-      "seaDistance": "",
+      "seaDistance": "500 m",
       "amenities": [
         "Klíma",
         "Mosógép",

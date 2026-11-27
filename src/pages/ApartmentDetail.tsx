@@ -99,6 +99,15 @@ export default function ApartmentDetail() {
             </div>
           </div>
         </div>
+        {apartment.photoSection && (
+          <section className="mt-10 max-w-3xl sm:mt-14" aria-labelledby="apartment-extra-photos">
+            <h2 id="apartment-extra-photos" className="mb-5 font-display text-2xl font-semibold text-midnight sm:text-3xl">
+              {apartment.photoSection.title}
+            </h2>
+            <ImageGallery images={apartment.photoSection.images} name={`${apartment.name} – ${apartment.photoSection.title}`}
+              imageSizes="(min-width: 820px) 768px, calc(100vw - 32px)" prioritize={false} />
+          </section>
+        )}
       </div>
     </div>
   );

@@ -3,21 +3,21 @@ import type { AttractionPlace } from './attractionDetails';
 export const clientAttractionUpdates: AttractionPlace[] = [
   {
     "slug": "lovcen-mauzoleum",
-    "name": "Lovćen-mauzóleum",
+    "name": "Lovćen Njegoš-mauzóleum",
     "category": "nevezetessegek",
     "images": [
       "/images/attractions/nevezetessegek/lovcen-mauzoleum-stock.jpg"
     ],
     "description": [
       {
-        "text": "Lovcen Njegos-mauzóleum: ",
+        "text": "Lovćen Njegoš-mauzóleum: ",
         "bold": true
       },
       {
         "text": "A világ legmagasabban fekvő síremlékét 1657 méteren, a Lovćen Nemzeti Park szívében emelték Petar II Petrović-Njegoš tiszteletére. A monumentális építmény aljába Kotor vagy Cetinje felől hajtűkanyarokkal tűzdelt panoráma út vezet, majd közvetlenül a csúcsra  461 lépcsőfokot kell még leküzdeni. A hegycsúcson emelt mauzóleumot a híres szobrász, Ivan Meštrović tervezte. A bejáratot két monumentális, gránitból faragott montenegrói asszony alakja őrzi, a sírkamra feletti boltozatot pedig valódi aranyból készült mozaikok borítják. Terasza 360 fokos panorámát nyújt az egész országra. Ellátni a Skadar-tóig, Albániáig, a Durmitor hófödte vonulatáig, az Adriai-tengerig, sőt, tiszta időben akár Olaszország partjáig is."
       }
     ],
-    "descriptionTitle": "Lovcen Njegos-mauzóleum",
+    "descriptionTitle": "Lovćen Njegoš-mauzóleum",
     "details": [
       {
         "label": "Megközelítés",
@@ -34,7 +34,7 @@ export const clientAttractionUpdates: AttractionPlace[] = [
           ],
           [
             {
-              "text": "Egy napos kirándulás."
+              "text": "Egynapos kirándulás."
             }
           ]
         ]
@@ -101,7 +101,7 @@ export const clientAttractionUpdates: AttractionPlace[] = [
           ],
           [
             {
-              "text": "Egy napos kirándulás a Velika Plazan töltött strandolással együtt. "
+              "text": "Egynapos kirándulás a Velika Plazan töltött strandolással együtt. "
             }
           ]
         ]
@@ -141,7 +141,7 @@ export const clientAttractionUpdates: AttractionPlace[] = [
         "bold": true
       },
       {
-        "text": "A függőleges sziklafalba vájt Ostrog Monastery Montenegró leglátványosabb és legszentebb zarándokhelye. A 900 méteres magasságban fekvő, vakítóan fehér épületegyüttes szinte lebeg a Zeta-völgy felett, lenyűgöző látványt nyújtva az idelátogatóknak. A 17. században alapított kolostorban őrzik Csodatevő Szent Vaszilije ereklyéit, ahová vallási hovatartozástól függetlenül érkeznek a gyógyulni és csendre vágyó zarándokok. "
+        "text": "A függőleges sziklafalba vájt Ostrog Monastery Montenegró leglátványosabb és legszentebb zarándokhelye. A 900 méteres magasságban fekvő, vakítóan fehér épületegyüttes szinte lebeg a Zeta-völgy felett, lenyűgöző látványt nyújtva az idelátogatóknak. A 17. században alapított kolostorban őrzik Csodatevő Szent Vaszilije ereklyéit. Erre a különleges kegyhelyre vallási hovatartozástól függetlenül érkeznek a gyógyulni és csendre vágyó zarándokok. "
       }
     ],
     "descriptionTitle": "Ostrog kolostor",
@@ -161,7 +161,7 @@ export const clientAttractionUpdates: AttractionPlace[] = [
           ],
           [
             {
-              "text": "Egy napos kirándulás főleg főszezonban, mivel lassan járható kanyargós és szűk autóút vezet a kolostorhoz, valamint a szezonban gyakori, hogy hosszú sor torlódik fel a bejáratnál."
+              "text": "Egynapos kirándulás főleg főszezonban, mivel lassan járható kanyargós és szűk autóút vezet a kolostorhoz, valamint a szezonban gyakori, hogy hosszú sor torlódik fel a bejáratnál."
             }
           ]
         ]
@@ -181,7 +181,7 @@ export const clientAttractionUpdates: AttractionPlace[] = [
         "paragraphs": [
           [
             {
-              "text": "Amire érdemes figyelni: a kolostor területén a szent helyekre vonatkozó öltözködési szabályok érvényesek (vállat és térdet takaró ruházat ajánlott)."
+              "text": "Amire érdemes figyelni: A kolostor területén a szent helyekre vonatkozó öltözködési szabályok érvényesek (vállat és térdet takaró ruházat ajánlott)."
             }
           ]
         ]

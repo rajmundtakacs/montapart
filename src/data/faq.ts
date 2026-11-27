@@ -14,7 +14,7 @@ export const montenegroFaq = [
   },
   {
     "question": "Hány parkolóhely jár egy apartmanhoz?",
-    "answer": "FONTOS! Amennyiben tartozik parkolóhely a szálláshoz, az apartmanonként 1 db autó parkolását biztosítja. További jármű parkolását az autó tulajdonosának kell megoldania saját felelősségre ingyenes vagy fizetős parkolóhelyen."
+    "answer": "FONTOS! Amennyiben tartozik parkolóhely a szálláshoz, az apartmanonként 1 autó parkolását biztosítja. További jármű parkolását az autó tulajdonosának kell megoldania saját felelősségre ingyenes vagy fizetős parkolóhelyen."
   },
   {
     "question": "Mennyi készpénzt hozzak?",

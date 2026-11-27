@@ -4,8 +4,13 @@ import type { Apartment } from './apartments';
 const adriaImages = [
   '/images/apartmanok/adria/adria-01.jpg',
   '/images/apartmanok/adria/adria-haloszoba.jpg',
+  '/images/apartmanok/adria/adria-img-1609.jpg',
+  '/images/apartmanok/adria/adria-img-1640.jpg',
+  '/images/apartmanok/adria/adria-img-1637.jpg',
   '/images/apartmanok/adria/adria-konyha.jpg',
   '/images/apartmanok/adria/adria-furdoszoba.jpg',
+  '/images/apartmanok/adria/adria-img-1632.jpg',
+  '/images/apartmanok/adria/adria-img-1643.jpg',
   '/images/apartmanok/adria/adria-02.jpg',
   '/images/apartmanok/adria/adria-03.jpg',
   '/images/apartmanok/adria/adria-04.jpg',
@@ -14,6 +19,67 @@ const adriaImages = [
 ];
 
 export const moreApartments: Apartment[] = [
+  {
+    slug: 'utjeha-villa',
+    name: 'Privát villa (Utjeha)',
+    thumbnail: '/images/apartmanok/utjeha-villa/utjeha-01.jpg',
+    unitCountLabel: 'Teljes villa',
+    description: 'Bartól délre, Utjeha partján egy teljesen elszeparált, medencével és saját partszakasszal rendelkező villa kínál exkluzív kikapcsolódást. A két épületből álló ingatlan kiváló elrendezéssel rendelkezik: a tágas főépületben három hálószoba, három fürdőszoba, egy nagyméretű konyha és egy tágas terasz található, a kisebb vendégházban pedig egy hálószoba, fürdőszoba és konyha bérelhető. A vendégek kényelmét és aktív pihenését klíma, Wi-Fi, saját parkoló, grillezési lehetőség (elektromos grillel), valamint SUP-deszka is biztosítja.',
+    units: [{
+      id: 1,
+      label: 'Teljes villa',
+      bedrooms: 4,
+      seaDistance: '0 m',
+      amenities: [],
+      images: [
+        '/images/apartmanok/utjeha-villa/utjeha-01.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-02.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-03.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-04.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-05.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-06.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-07.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-08.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-09.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-10.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-11.jpg',
+        '/images/apartmanok/utjeha-villa/utjeha-12.jpg',
+      ],
+    }],
+  },
+  {
+    slug: 'barna',
+    name: 'Barna Apartman',
+    thumbnail: '/images/apartmanok/barna/epulet-es-apartman/barna-01.jpg',
+    unitCountLabel: 'Apartman és stúdiók',
+    description: 'A modern bútorokkal felszerelt apartmanház mindössze kétszáz méterre található a helyiek által kedvelt és megközelítése miatt különlegesnek számító Alagutas Strand bejáratától. Sutomore nagy strandjáig 600 métert kell sétálni. A villában több két-három fő elszállásolására alkalmas stúdió is található. A családok körében kedvelt a nappali-konyhás és hálószobás apartman. Nagyobb társaságok számára a teljes villa is bérelhető.',
+    units: [
+      {
+        id: 1,
+        label: 'Apartman',
+        bedrooms: 1,
+        seaDistance: '',
+        amenities: [],
+        images: [
+          '/images/apartmanok/barna/epulet-es-apartman/barna-03.jpg',
+          '/images/apartmanok/barna/epulet-es-apartman/barna-01.jpg',
+          '/images/apartmanok/barna/epulet-es-apartman/barna-02.jpg',
+        ],
+      },
+      {
+        id: 2,
+        label: 'Stúdiók',
+        bedrooms: 1,
+        seaDistance: '',
+        amenities: [],
+        images: [
+          '/images/apartmanok/barna/studiok/barna-eredeti-06.jpg',
+          '/images/apartmanok/barna/studiok/barna-eredeti-03.jpg',
+          '/images/apartmanok/barna/epulet-es-apartman/barna-01.jpg',
+        ],
+      },
+    ],
+  },
   {
     "slug": "adria",
     "name": "Adria Apartmanok",

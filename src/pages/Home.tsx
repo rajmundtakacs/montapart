@@ -6,7 +6,7 @@ import { apartments } from '../data/apartments';
 
 const categories = [
   { to: '/montenegro', label: 'Miért éppen Montenegró?', image: '/images/index/montenegro-client-crop.jpg' },
-  { to: '/apartments', label: 'Apartmanok', image: '/images/apartmanok/rusztikus/images/ap3/rusztikus_9.JPG' },
+  { to: '/apartments', label: 'Apartmanok', image: '/images/apartmanok/medences/pool-penthouse/pool-penthouse-01.jpg' },
   { to: '/hotels', label: 'Hotelek', image: '/images/hotelek/sutomore-client.jpg' },
   { to: '/attractions', label: 'Látnivalók', image: '/images/attractions/nevezetessegek/san-giovanni-erod.jpg' },
 ];

@@ -13,6 +13,7 @@ interface ImageGalleryProps {
   name: string;
   allowFullscreen?: boolean;
   imageSizes?: string;
+  prioritize?: boolean;
 }
 
 export default function ImageGallery({
@@ -20,6 +21,7 @@ export default function ImageGallery({
   name,
   allowFullscreen = true,
   imageSizes = '(min-width: 1536px) 880px, (min-width: 1024px) calc(60vw - 42px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)',
+  prioritize = true,
 }: ImageGalleryProps) {
   const reduceMotion = useReducedMotion();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -46,7 +48,7 @@ export default function ImageGallery({
               <div className="relative w-full h-full">
                 {portraitSet.has(i) && <div className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-50" style={{ backgroundImage: `url(${getImageVariants(img, 160).src})` }} />}
                 {Math.abs(i - activeIndex) <= 1 && (
-                  <ResponsiveImage src={img} sizes={imageSizes} alt={`${name} – ${i + 1}. kép`} loading="eager" fetchPriority={i === activeIndex ? 'high' : 'low'} onLoad={(e) => handleImageLoad(i, e)} className={`relative w-full h-full ${portraitSet.has(i) ? 'object-contain' : 'object-cover'}`} />
+                  <ResponsiveImage src={img} sizes={imageSizes} alt={`${name} – ${i + 1}. kép`} loading={prioritize ? 'eager' : 'lazy'} fetchPriority={prioritize && i === activeIndex ? 'high' : 'low'} onLoad={(e) => handleImageLoad(i, e)} className={`relative w-full h-full ${portraitSet.has(i) ? 'object-contain' : 'object-cover'}`} />
                 )}
                 {allowFullscreen && <button type="button" tabIndex={activeIndex === i ? 0 : -1} className="absolute inset-0 block w-full h-full cursor-zoom-in" aria-label={`${i + 1}. kép nagyítása – ${name}`} onClick={() => setLightboxIndex(i)} />}
               </div>

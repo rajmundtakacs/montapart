@@ -12,7 +12,7 @@ export default function FeatureGrid({ unit }: FeatureGridProps) {
     ...(hasNoParking ? ['A szálláshoz nem tartozik parkoló.'] : []),
   ];
   const features = [
-    { icon: Users, label: 'Kapacitás', value: `${unit.capacity} fő` },
+    ...(unit.capacity === undefined ? [] : [{ icon: Users, label: 'Kapacitás', value: `${unit.capacity} fő` }]),
     { icon: BedDouble, label: 'Hálószoba', value: `${unit.bedrooms}` },
     ...(unit.bathrooms !== undefined
       ? [{ icon: ShowerHead, label: 'Fürdőszoba', value: `${unit.bathrooms}` }]

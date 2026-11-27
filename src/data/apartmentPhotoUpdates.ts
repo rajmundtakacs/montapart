@@ -172,7 +172,8 @@ export const apartmentPhotoUpdates: Record<string, { thumbnail?: string; thumbna
         "/images/apartmanok/viragos/ap2/viragos_2.JPG",
         "/images/apartmanok/viragos/ap2/viragos_3.JPG",
         "/images/apartmanok/viragos/ap2/viragos_4.JPG",
-        "/images/apartmanok/viragos/ap2/viragos_9.JPG",
+        "/images/apartmanok/viragos/ap2/friss/img_0273.jpg",
+        "/images/apartmanok/viragos/ap2/friss/img_0274.jpg",
         "/images/apartmanok/viragos/ap2/friss/img_0227.jpg",
         "/images/apartmanok/viragos/ap2/friss/img_0229.jpg",
         "/images/apartmanok/viragos/ap2/friss/img_8225.jpg"
@@ -188,7 +189,6 @@ export const apartmentPhotoUpdates: Record<string, { thumbnail?: string; thumbna
         "/images/apartmanok/viragos/ap3/viragos_7.JPG"
       ],
       "4": [
-        "/images/apartmanok/viragos/ap4/viragos_1.JPG",
         "/images/apartmanok/viragos/ap4/friss/img_0194.jpg",
         "/images/apartmanok/viragos/ap4/viragos_3.JPG",
         "/images/apartmanok/viragos/ap4/viragos_4.JPG",
